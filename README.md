@@ -2,5 +2,5 @@
 
 This Application is for SungKyul University students.</br>
 haha
-//guen
+//guenT
 
