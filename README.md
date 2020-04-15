@@ -52,3 +52,5 @@ Main UI
 **Web** - 이근택  
 **App** - 고정륜, 이세희, 정민호  
 **DB** - 민연식  
+
+**Thanks to Mento. Kwak MinWoo**
