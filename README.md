@@ -20,8 +20,11 @@ Main UI
 -------
 <div>
   <img src="![main ui](https://user-images.githubusercontent.com/52391756/79352959-6fb11980-7f75-11ea-9856-6568145457cb.png)">
-</div>
-<h3>제작자 | </h3>&nbsp; <b>Server</b> - 노혜지</br>
-&emsp;&emsp;&emsp;&emsp; <b>Web</b> - 이근택</br>
-&emsp;&emsp;&emsp;&emsp; <b>App</b> - 고정륜, 이세희, 정민호</br>
-&emsp;&emsp;&emsp;&emsp; <b>DB</b> - 민연식</br>
+</div></br>
+
+제작자
+-------
+<b>Server</b> - 노혜지</br>
+<b>Web</b> - 이근택</br>
+<b>App</b> - 고정륜, 이세희, 정민호</br>
+<b>DB</b> - 민연식</br>
