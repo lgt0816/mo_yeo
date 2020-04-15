@@ -1,15 +1,12 @@
-<h1>모여라 여기로</h1>
-
-Introduce 
-----------
+# 모여라 여기로
+### Introduce 
 성결대학교 학생들이 공식적인 절차를 통해 대학 활동을 효율적으로 진행하고,  
 진행한 활동들의 정보를 모두 보관하여 풍부한 포트폴리오를 만들 수 있도록 고안된 프로그램.
 
 
 +) 본 프로그램에서 취급하는 활동 종류 : **스터디, 공모전, 프로젝트, 졸업작품**  
 
-Funtcion
---------  
+### Funtcion
 - **활동 인원 모집**  
 &nbsp;: 모집자가 만들고자 하는 활동 개설  
 &nbsp;: 모집자는 모집 인원, 모집 기간, 활동 기간(계획), 활동 목표, 활동 내용에 대한 내용을 상세히 작성하여 게시  
@@ -37,16 +34,14 @@ Funtcion
 &nbsp;: 졸업생 모집 게시판을 통해 도움을 받고자 하는 직무에 종사 중인 졸업생을 찾을 수 있음  
     
 
-Software Diagram
------------------
+### Software Diagram
 ![구성도](https://user-images.githubusercontent.com/52391756/79367515-f9b6ad80-7f88-11ea-8d50-0e78f304d43c.png)
 
-Main UI
--------
+### Main UI
 ![main ui](https://user-images.githubusercontent.com/52391756/79368583-962d7f80-7f8a-11ea-99a8-b7b840b08f71.png)
 
-Programmer
--------
+### Programmer
+
 **Server**  
 **&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com    
 
@@ -59,6 +54,6 @@ Programmer
 **&nbsp; Name :** Jeong MinHo, **E-mail :**       
 
 **DB**  
-**&nbsp; Name :** Min YeonSik, **E-mail :**    
-</br></br></br>
-**Thanks to Mento. Kwak MinWoo**
+**&nbsp; Name :** Min YeonSik, **E-mail :**
+            
+#### **Thanks to Mento. Kwak MinWoo**
