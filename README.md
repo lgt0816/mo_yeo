@@ -43,18 +43,18 @@
 
 ## Programmer
 
-#### **Server**  
+### **Server**  
 **&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com 
 
-#### **Web**  
+### **Web**  
 **&nbsp; Name :** Lee GeunTaek, **E-mail :**     
 
-#### **App**  
+### **App**  
 **&nbsp; Name :** Ko JeongRyun, **E-mail :**   
 **&nbsp; Name :** Lee SeiHee, **E-mail :**   
 **&nbsp; Name :** Jeong MinHo, **E-mail :**       
 
-#### **DB**  
+### **DB**  
 **&nbsp; Name :** Min YeonSik, **E-mail :**
 </br></br></br>
 ### **Thanks to Mento. Kwak MinWoo**
