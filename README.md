@@ -18,9 +18,7 @@ Funtcion
 
 Main UI
 -------
-<div>
-  <img src="![main ui](https://user-images.githubusercontent.com/52391756/79352959-6fb11980-7f75-11ea-9856-6568145457cb.png)">
-</div></br>
+![main ui](https://user-images.githubusercontent.com/52391756/79353679-58266080-7f76-11ea-9a92-8da04674436a.png)
 
 제작자
 -------
