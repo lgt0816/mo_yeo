@@ -45,12 +45,21 @@ Main UI
 -------
 ![main ui](https://user-images.githubusercontent.com/52391756/79368583-962d7f80-7f8a-11ea-99a8-b7b840b08f71.png)
 
-
-제작자
+Programmer
 -------
-**Server** - Roh HyeJi, E-mail : shgpwl509@gmail.com  
-**Web** - 이근택  
-**App** - 고정륜, 이세희, 정민호  
-**DB** - 민연식  
+**Server**  
+**&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com    
+
+**Web**  
+**&nbsp; Name :** Lee GeunTaek, **E-mail :**     
+
+**App**  
+**&nbsp; Name :** Ko JeongRyun, **E-mail :**   
+**&nbsp; Name :** Lee SeiHee, **E-mail :**   
+**&nbsp; Name :** Jeong MinHo, **E-mail :**       
+
+**DB**  
+**&nbsp; Name :** Min YeonSik, **E-mail :**    
+
 
 **Thanks to Mento. Kwak MinWoo**
