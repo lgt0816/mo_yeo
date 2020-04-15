@@ -43,7 +43,7 @@
 ### Programmer
 
 **Server**  
-**&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com    
+**&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com @hyezi-roh
 
 **Web**  
 **&nbsp; Name :** Lee GeunTaek, **E-mail :**     
