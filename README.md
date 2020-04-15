@@ -39,10 +39,11 @@ Funtcion
 
 Software Diagram
 -----------------
+![구성도](https://user-images.githubusercontent.com/52391756/79367515-f9b6ad80-7f88-11ea-8d50-0e78f304d43c.png)
 
 Main UI
 -------
-![main ui](https://user-images.githubusercontent.com/52391756/79354013-ccf99a80-7f76-11ea-8cb4-6fe5250222c2.png)
+![main ui](https://user-images.githubusercontent.com/52391756/79367891-895c5c00-7f89-11ea-8ea8-72eb1c20ef34.png)
 
 제작자
 -------
