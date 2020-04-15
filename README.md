@@ -43,7 +43,8 @@ Software Diagram
 
 Main UI
 -------
-![main ui](https://user-images.githubusercontent.com/52391756/79367891-895c5c00-7f89-11ea-8ea8-72eb1c20ef34.png)
+![main ui](https://user-images.githubusercontent.com/52391756/79368583-962d7f80-7f8a-11ea-99a8-b7b840b08f71.png)
+
 
 제작자
 -------
