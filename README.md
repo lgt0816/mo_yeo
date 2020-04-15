@@ -1,6 +1,5 @@
 # 모여라 여기로
 ## Introduce
----
 성결대학교 학생들이 공식적인 절차를 통해 대학 활동을 효율적으로 진행하고,  
 진행한 활동들의 정보를 모두 보관하여 풍부한 포트폴리오를 만들 수 있도록 고안된 프로그램.
 
@@ -11,7 +10,8 @@
 - **활동 인원 모집**  
 &nbsp;: 모집자가 만들고자 하는 활동 개설  
 &nbsp;: 모집자는 모집 인원, 모집 기간, 활동 기간(계획), 활동 목표, 활동 내용에 대한 내용을 상세히 작성하여 게시  
-&nbsp;: 모집 글을 게시하면, 모집자의 정보(학년, 이름)가 사용자 모두에게 보여짐. **(신뢰도를 위해 정보 일부 공개)**    
+&nbsp;: 모집 글을 게시하면, 모집자의 정보(학년, 이름)가 사용자 모두에게 보여짐. **(신뢰도를 위해 정보 일부 공개)**  
+&nbsp;
 
 - **활동 참여 신청**  
 &nbsp;: 게시된 모집글을 읽고 원하는 활동에 참여 신청  
@@ -43,18 +43,18 @@
 
 ## Programmer
 
-**Server**  
+#### **Server**  
 **&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com 
 
-**Web**  
+#### **Web**  
 **&nbsp; Name :** Lee GeunTaek, **E-mail :**     
 
-**App**  
+#### **App**  
 **&nbsp; Name :** Ko JeongRyun, **E-mail :**   
 **&nbsp; Name :** Lee SeiHee, **E-mail :**   
 **&nbsp; Name :** Jeong MinHo, **E-mail :**       
 
-**DB**  
+#### **DB**  
 **&nbsp; Name :** Min YeonSik, **E-mail :**
-            
-#### **Thanks to Mento. Kwak MinWoo**
+</br></br></br>
+### **Thanks to Mento. Kwak MinWoo**
