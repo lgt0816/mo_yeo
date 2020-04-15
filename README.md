@@ -15,6 +15,7 @@
 </br></br>
 
 <h3>Main UI</h3></br>
+![main ui](https://user-images.githubusercontent.com/52391756/79352959-6fb11980-7f75-11ea-9856-6568145457cb.png)</br>
 
 <h3>제작자 | </h3>&nbsp; <b>Server</b> - 노혜지</br>
 &emsp;&emsp;&emsp;&emsp; <b>Web</b> - 이근택</br>
