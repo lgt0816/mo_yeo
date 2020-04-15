@@ -46,7 +46,7 @@ Main UI
 
 제작자
 -------
-**Server** - 노혜지  
+**Server** - Roh HyeJi, e-mail : shgpwl509@gmail.com  
 **Web** - 이근택  
 **App** - 고정륜, 이세희, 정민호  
 **DB** - 민연식  
