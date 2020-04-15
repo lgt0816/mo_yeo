@@ -60,7 +60,5 @@ Programmer
 
 **DB**  
 **&nbsp; Name :** Min YeonSik, **E-mail :**    
-
-
-
+  
 **Thanks to Mento. Kwak MinWoo**
