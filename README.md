@@ -18,7 +18,8 @@ Funtcion
 
 Main UI
 -------
-![main ui](https://user-images.githubusercontent.com/52391756/79353786-8015c400-7f76-11ea-8202-846e1779cb2f.png)
+![main ui](https://user-images.githubusercontent.com/52391756/79354013-ccf99a80-7f76-11ea-8cb4-6fe5250222c2.png)
+
 
 제작자
 -------
