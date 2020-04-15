@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sungkyul.graduation.persistence.UserMapper">
+	
+	<select id="login" resultType="com.sungkyul.graduation.domain.User">
+		select * from student where STUDENT_ID= #{userId} and STUDENT_PW = #{userPw}
+	</select>
+	
+	<insert id="join">
+		insert into student (STUDENT_ID, STUDENT_PW, STUDENT_NAME, STUDENT_PHONENUM, STUDENT_EMAIL, STUDENT_SEX, STUDENT_MAJOR, STUDENT_GRADE, STUDENT_SCHOOLSTATE, STUDENT_TOTALWARNINGCOUNT) VALUES (#{userId}, #{userPw}, #{name} , #{phoneNum}, #{email}, #{sex}, #{major}, #{grade}, #{schoolState}, 0) 
+	</insert>
+	
+	<select id="checkEmail" resultType="java.lang.String">
+		select STUDENT_EMAIL from student where STUDENT_EMAIL=#{email} 
+	</select>
+	
+	<select id="checkUserId" resultType="java.lang.String">
+		select STUDENT_ID from student where STUDENT_ID= #{userId} 
+	</select>
+
+</mapper>
