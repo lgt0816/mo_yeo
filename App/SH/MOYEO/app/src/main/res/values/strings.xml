@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name"></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Graduate_array">
+        <item>1학년 이상</item>
+        <item>2학년 이상</item>
+        <item>3학년 이상</item>
+        <item>4학년 이상</item>
+    </string-array>
+
+</resources>
