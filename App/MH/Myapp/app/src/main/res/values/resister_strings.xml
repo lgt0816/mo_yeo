@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+    <resources>
+
+    <string name="app_name">PDOLogin</string>
+
+    <string name="hint_email">ID를 입력하세요</string>
+
+    <string name="hint_password">Password를 입력하세요</string>
+
+    <string name="hint_name">성명을 입력하세요</string>
+
+    <string name="hint_mobileNO">휴대폰번호를 입력하세요</string>
+
+    <string name="hint_telNO">E-mail을 입력하세요</string>
+
+    <string name="btn_login">로그인</string>
+
+    <string name="btn_register">회원가입</string>
+
+</resources>
