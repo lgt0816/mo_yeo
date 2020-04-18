@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:drawableRight="@drawable/ment"
+        android:drawablePadding="20dp"
+        android:gravity="left"
+        android:text="2019-2 창의 융합 튜터링"
+        android:textSize="30dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="참여인원| 11"
+                android:layout_marginBottom="30dp"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="참여한 사람| 000(대표)\n 000, 000, 000"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="진행기간| 2019년 12월~2020년 1월"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="진행내용| 팀끼리 매주 1회 모여 c및 python\n기반의 단계별 복습을 진행하고, 간단한 프로그램을 제작함"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="진행결과| c팀 우수상 수상\n Python팀 최우수상 수상"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    tools:srcCompat="@drawable/people"/>
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    tools:srcCompat="@drawable/house"/>
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    tools:srcCompat="@drawable/doc"/>
+            </LinearLayout>
+
+        </LinearLayout>

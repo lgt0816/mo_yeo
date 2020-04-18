@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="진행 중인 내 활동(클릭)"
+        android:id="@+id/ing"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="모집 중인 활동(클릭)"
+        android:id="@+id/rc"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="신청 중인 내 활동(클릭)"
+        android:id="@+id/rq"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="완료한 활동(클릭)"
+        android:id="@+id/fin"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="포트폴리오(클릭)"
+        android:id="@+id/pp"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="재)졸업작품 리스트(클릭)"
+        android:id="@+id/gp"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="졸)졸업생 졸업작품 조회(클릭)"
+        android:id="@+id/ggp"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+
+</LinearLayout>
