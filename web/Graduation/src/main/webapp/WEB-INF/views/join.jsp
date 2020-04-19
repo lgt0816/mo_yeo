@@ -71,6 +71,8 @@ $(document).ready(function() {
 		<input type="button" id="checkId" name="checkId" value="아이디 중복 확인" >
 		비밀번호 : 
 		<input type="password" id="userPw" name="userPw" class="form-control" placeholder="User Pw..." />
+		비밀번호 확인 : 
+		<input type="password" id="userPw2" name="userPw2" class="form-control" placeholder="User Pw..." />
 		이름 : 
 		<input type="text" id="name" name="name" class="form-control" placeholder="User Name..." />
 		핸드폰 번호 :
