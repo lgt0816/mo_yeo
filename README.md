@@ -50,17 +50,17 @@
 ## Programmer
 
 ### **Server**  
-**&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com 
+**Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com 
 
 ### **Web**  
-**&nbsp; Name :** Lee GeunTaek, **E-mail :** lgt0816@gmail.com     
+**Name :** Lee GeunTaek, **E-mail :** lgt0816@gmail.com     
 
 ### **App**  
-**&nbsp; Name :** Ko JeongRyun, **E-mail :** vicky6021@naver.com  
-**&nbsp; Name :** Lee SeiHee, **E-mail :** shleero@naver.com  
-**&nbsp; Name :** Jung MinHo, **E-mail :** jung2381@sungkyul.ac.kr      
+**Name :** Ko JeongRyun, **E-mail :** vicky6021@naver.com  
+**Name :** Lee SeiHee, **E-mail :** shleero@naver.com  
+**Name :** Jung MinHo, **E-mail :** jung2381@sungkyul.ac.kr      
 
 ### **DB**  
-**&nbsp; Name :** Min YeonSik, **E-mail :** minys94@naver.com
+**Name :** Min YeonSik, **E-mail :** minys94@naver.com
 </br></br></br>
 ### **Thanks to Mento. Kwak MinWoo**
