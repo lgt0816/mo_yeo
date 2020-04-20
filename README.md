@@ -53,14 +53,14 @@
 **&nbsp; Name :** Roh HyeJi, **E-mail :** shgpwl509@gmail.com 
 
 ### **Web**  
-**&nbsp; Name :** Lee GeunTaek, **E-mail :**     
+**&nbsp; Name :** Lee GeunTaek, **E-mail :** lgt0816@gmail.com     
 
 ### **App**  
-**&nbsp; Name :** Ko JeongRyun, **E-mail :**   
-**&nbsp; Name :** Lee SeiHee, **E-mail :**   
-**&nbsp; Name :** Jeong MinHo, **E-mail :**       
+**&nbsp; Name :** Ko JeongRyun, **E-mail :** vicky6021@naver.com  
+**&nbsp; Name :** Lee SeiHee, **E-mail :** shleero@naver.com  
+**&nbsp; Name :** Jung MinHo, **E-mail :** jung2381@sungkyul.ac.kr      
 
 ### **DB**  
-**&nbsp; Name :** Min YeonSik, **E-mail :**
+**&nbsp; Name :** Min YeonSik, **E-mail :** minys94@naver.com
 </br></br></br>
 ### **Thanks to Mento. Kwak MinWoo**
