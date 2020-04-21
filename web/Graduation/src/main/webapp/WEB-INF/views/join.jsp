@@ -6,60 +6,83 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	
-	$('#checkId').click(function(){
-		var userId = document.querySelector("#userId").value;
-		var query = "userId="+userId;
-		
-		$.ajax({
-			url:"/join/checkUserId" ,
-			type:"GET" ,
-			data:query,
-			dataType:"json",
-			success:function(data){
-				alert(data.result);
-			},
-			error: function (e) {
-				alert("통신실패"+e);
-			}
-		});
-		
-	});
-	$('#sendAuthorizationMail').click(function () {
-		var email = document.querySelector("#email").value;
-		var selectEmail = document.querySelector("#emailAddress").value;
-		var query = "email=" + email + "@" + selectEmail;
-		$.ajax({
-			url:"/join/authorizationMail" ,
-			type:"GET" ,
-			data:query,
-			dataType:"json",
-			success:function(data){
-				alert(data.result);
-			},
-			error: function (e) {
-				alert("통신실패"+e);
-			}
-		});
-	})
-	$('#checkAuthorizationCode').click(function () {
-		var authorizationCode = document.querySelector("#authorizationCode").value;
-		var query ="authorizationCode="+authorizationCode;
-		$.ajax({
-			url:"/join/authorizationCheck" ,
-			type:"GET" ,
-			data:query,
-			dataType:"json",
-			success:function(data){
-				alert(data.result);
-			},
-			error: function (e) {
-				alert("통신실패"+e);
-			}
-		});
-	})
-	
+window.addEventListener("load",function(){
+    const checkId = document.querySelector("#checkId");	//아이디 중복확인 버튼
+    const sendAuthorizationMail = document.querySelector("#sendAuthorizationMail");	//인증메일보내기 버튼
+    const checkAuthorizationCode = document.querySelector("#checkAuthorizationCode");	//인증하기 버튼
+    let httpRequest;
+    
+    //인증하기버튼 클릭 이벤트
+    checkAuthorizationCode.onclick=function(){
+    	const authorizationCode = document.querySelector("#authorizationCode").value;
+    	const jsonData = {inputKey:authorizationCode};
+    	makePostRequest("/join/authorizationCheck", jsonData, alertContents);
+    }
+    
+    //인증메일 보내기 버튼 클릭 이벤트
+    sendAuthorizationMail.onclick=function(){
+    	const email1 = document.querySelector("#email1").value;
+    	const email2 = document.querySelector("#email2").value;
+    	const jsonData = {email1:email1, email2:email2};
+    	makePostRequest("/join/authorizationMailCheck", jsonData, alertAndSendMail);
+    };
+    
+    //아이디 중복확인버튼 클릭 이벤트
+    checkId.onclick=function(){
+        const userId = document.querySelector("#userId").value;
+        let jsonData = {userId:userId};
+        makePostRequest("/join/checkUserId",jsonData, alertContents);
+    };
+    
+    //ajax통신을 위한 함수
+    function makePostRequest(url, jsonData, responseFounction){
+        httpRequest = new XMLHttpRequest();
+        if(!httpRequest){
+            alert('XMLHTTP 인스턴스를 만들수가 없습니다.');
+            return false;
+        }
+        httpRequest.onreadystatechange = responseFounction;
+        httpRequest.open("POST",url);
+        httpRequest.setRequestHeader('Content-Type', 'application/json');
+        httpRequest.send(JSON.stringify(jsonData));
+    }
+    //ajax 통신후 결과값을 alert하는 함수
+    function alertContents() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            const response = JSON.parse(httpRequest.responseText);
+            const result = response.result;
+            const fleg = response.fleg;
+            
+            if(result!==null)
+            	alert(result);
+          } else {
+            alert('request에 뭔가 문제가 있습니다.');
+          }
+        }
+      }
+    //ajax 통신의 결과값 alert와 다시 ajax로인증 이메일을 보냄
+    function alertAndSendMail(){
+    	if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+            	const response = JSON.parse(httpRequest.responseText);
+                const result = response.result;
+                const flag = response.flag;
+                const email1 = document.querySelector("#email1").value;
+            	const email2 = document.querySelector("#email2").value;
+            	const jsonData = {email1:email1, email2:email2};
+            	
+                if(result!==null) alert(result);
+                if(flag){
+                	makePostRequest("/join/authorizationMailSend", jsonData);
+                }
+                
+            } else {
+              alert('request에 뭔가 문제가 있습니다.');
+            }
+          }
+    }
+    
 });
 </script>
 <title>회원가입 페이지</title>
@@ -78,9 +101,9 @@ $(document).ready(function() {
 		핸드폰 번호 :
 		<input type="text" id="phoneNum" name="phoneNum" class="form-control" placeholder="User PhoneNum..." />
 		이메일 : 
-		<input type="text" id="email" name="email" class="form-control" placeholder="User Email..." />
+		<input type="text" id="email1" name="email1" class="form-control" placeholder="User Email..." />
 		@
-		<select name="emailAddress" id="emailAddress">
+		<select name="email2" id="email2">
 			<option>sungkyul.ac.kr</option>
 			<option>office.sungkyul.ac.kr</option>
 		</select>

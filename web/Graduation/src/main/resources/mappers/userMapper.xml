@@ -3,7 +3,7 @@
 
 <mapper namespace="com.sungkyul.graduation.persistence.UserMapper">
 	
-	<select id="login" resultType="com.sungkyul.graduation.domain.User">
+	<select id="login" resultType="com.sungkyul.graduation.domain.Student">
 		select * from student where STUDENT_ID= #{userId} and STUDENT_PW = #{userPw}
 	</select>
 	

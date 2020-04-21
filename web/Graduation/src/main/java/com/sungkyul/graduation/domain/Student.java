@@ -26,6 +26,7 @@ public class Student extends User {
 		this.grade = grade;
 		this.schoolState = schoolState;
 		this.totalWarningCount = totalWarningCount;
-	}	
+	}
+	
 	
 }

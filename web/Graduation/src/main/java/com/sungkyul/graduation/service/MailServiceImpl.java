@@ -19,18 +19,13 @@ import com.sungkyul.graduation.util.TempKey;
 public class MailServiceImpl implements MailService{
 
 	private static final Logger logger = LoggerFactory.getLogger(MailServiceImpl.class);
-	private static final String SESSION_AUTHORIZATION_CODE="authorizationCode";
-	private static final String SESSION_AUTHORIZATION_CLEAR="authorizationClear";
 	
 	@Inject
 	private JavaMailSender mailSender;
 	
 	@Override
-	public void sendAuthorizationMail(String email, HttpServletRequest request) 
+	public void sendAuthorizationMail(String email, String key) 
 			throws MessagingException, UnsupportedEncodingException{
-		String key = new TempKey().getKey(8, false);
-		HttpSession session = request.getSession();
-		session.setAttribute(SESSION_AUTHORIZATION_CODE, key);
 		
 		MailHandler mailHandler = new MailHandler(mailSender);
 		mailHandler.setSubject("[회원가입 인증]");	//메일 제목
@@ -54,14 +49,10 @@ public class MailServiceImpl implements MailService{
 
 	//회원가입 인증키 확인
 	@Override
-	public boolean checkAuthorizationCode(String key, HttpServletRequest request) throws Exception {
-		HttpSession session = request.getSession();
-		String sessionKey = (String) session.getAttribute(SESSION_AUTHORIZATION_CODE);
-		if(sessionKey.equals(key)) {
-			session.setAttribute(SESSION_AUTHORIZATION_CLEAR, true);
-			return true;
-		}else
-			return false;
+	public boolean checkAuthorizationCode(String inputKey, String sessionKey) throws Exception {
+		boolean result = sessionKey.equals(inputKey);
+		
+		return result;
 	}
 	
 

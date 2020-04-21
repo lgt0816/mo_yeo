@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.sungkyul.graduation.domain.User" alias="User" />
+		<typeAlias type="com.sungkyul.graduation.domain.Student" alias="Student" />
 	</typeAliases>
         
 </configuration>
