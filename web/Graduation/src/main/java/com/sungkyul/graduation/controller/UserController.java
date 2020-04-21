@@ -37,8 +37,12 @@ public class UserController {
 	private static final String SESSION_AUTHORIZATION_CLEAR="authorizationClear";
 	private static final String AJAX_RESULT="result";
 	private static final String AJAX_FLAG="flag";
-	private static final boolean AJAX_RESULT_FAIL=false;
-	private static final boolean AJAX_RESULT_CLEAR=true;
+	private static final boolean AJAX_RESULT_FAIL=false;	//이메일 중복확인 성공
+	private static final boolean AJAX_RESULT_CLEAR=true;	//이메일 중복확인 실패(중복된 이메일인 경우)
+	private static final String AJAX_AUTHORIZATAON_CHECK_CLEAR="authorizationClear";	//메일인증 성공
+	private static final String AJAX_AUTHORIZATAON_CHECK_FAILE="authorizationFaile";	//메일인증 실패
+	private static final String AJAX_USERID_CHECK_CLEAR="userIdCheckClear";		//아이디 중복확인 성공
+	private static final String AJAX_USERID_CHECK_FAILE="userIdCheckFaile";		//아이디 중복확인 실패(중복된 아이디인 경우)
 	
 	@Inject
 	private UserService userService;
@@ -105,9 +109,11 @@ public class UserController {
 		else if(userService.checkUserId(userId)) {
 			session.setAttribute(SESSION_ID_CHECK, true);
 			result.put(AJAX_RESULT, "사용가능한 아이디 입니다.");
+			result.put(AJAX_FLAG, AJAX_USERID_CHECK_CLEAR);
 		}else {
 			session.setAttribute(SESSION_ID_CHECK, false);
 			result.put(AJAX_RESULT, "중복된 아이디 입니다.");
+			result.put(AJAX_FLAG, AJAX_USERID_CHECK_FAILE);
 		}
 		
 		System.out.println(session.getAttribute(SESSION_ID_CHECK));
@@ -125,7 +131,6 @@ public class UserController {
 		String email = email1+"@"+email2;
 		
 		if(userService.checkEmail(email)) {
-//			mailService.sendAuthorizationMail(email, request);
 			result.put(AJAX_RESULT, "입력된 이메일로 인증번호를 보냈습니다.");
 			result.put(AJAX_FLAG, AJAX_RESULT_CLEAR);
 		}else { 
@@ -167,10 +172,12 @@ public class UserController {
 		if(mailService.checkAuthorizationCode(inputKey, sessionKey)) { 
 			session.setAttribute(SESSION_AUTHORIZATION_CLEAR, true);
 			result.put("result", "인증에 성공하였습니다.");
+			result.put(AJAX_FLAG, AJAX_AUTHORIZATAON_CHECK_CLEAR);
 		}
 		else {
 			session.setAttribute(SESSION_AUTHORIZATION_CLEAR, false);
 			result.put("result", "올바르지 않은 인증코드 입니다.");
+			result.put(AJAX_FLAG,AJAX_AUTHORIZATAON_CHECK_FAILE);
 		}
 		
 		return result;
