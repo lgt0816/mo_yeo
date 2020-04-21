@@ -225,7 +225,7 @@ window.addEventListener("load",function(){
 		재학상태: 
 		<input type="text" id="schoolState" name="SchoolState" class="form-control" placeholder="User SchoolState..." /><br>
 		
-		<button type="button" id="singUp">Sign up</button>
+		<button type="submit" id="singUp">Sign up</button>
 	</form>
 </body>
 </html>

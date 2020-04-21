@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public abstract class User {
+public class User {
 	private String userId;
 	private String userPw;
 	private String name;

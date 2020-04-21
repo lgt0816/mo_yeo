@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User login(LoginDTO dto) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.login(dto);
 	}
 

@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.sungkyul.graduation.domain.Student" alias="Student" />
+		<typeAlias type="com.sungkyul.graduation.domain.User" alias="User" />
 	</typeAliases>
         
 </configuration>
