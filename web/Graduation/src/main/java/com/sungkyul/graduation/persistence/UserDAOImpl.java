@@ -2,12 +2,14 @@ package com.sungkyul.graduation.persistence;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.sungkyul.graduation.domain.User;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
+import com.sungkyul.graduation.dto.UserUpdateDTO;
 
 @Repository
 public class UserDAOImpl implements UserDAO{
@@ -20,6 +22,9 @@ public class UserDAOImpl implements UserDAO{
 	private static final String JOIN = NS+".join";
 	private static final String CHECK_EMAIL = NS+".checkEmail";
 	private static final String CHECK_USER_ID = NS+".checkUserId";
+	private static final String UPDATE_USER_PW =NS+".updateUserPw";
+	private static final String UPDATE_USER=NS+".updateUser";
+	
 
 	@Override
 	public User login(LoginDTO dto) throws Exception {
@@ -53,6 +58,37 @@ public class UserDAOImpl implements UserDAO{
 			return true;
 		}else {
 			return false;
+		}
+	}
+
+	//비밀번호 + 개인정보 변경
+	@Override
+	public User updateUserPw(UserUpdateDTO userUpdateDTO) {
+
+		//update는 리턴시 바꾸는데 성공한 row 갯수를 반환한다.(resultType없음)
+		if(session.update(UPDATE_USER_PW, userUpdateDTO) != 0) {
+			//성공시
+			LoginDTO loginDTO= new LoginDTO(userUpdateDTO.getUserId(), 
+					userUpdateDTO.getUserPw3());
+			return session.selectOne(LOGIN, loginDTO);
+		}else {
+			//실패시
+			return null;
+		}
+		
+	}
+
+	@Override
+	//개인정보만 변경
+	public User updateUser(UserUpdateDTO userUpdateDTO) {
+		//update는 리턴시 바꾸는데 성공한 row 갯수를 반환한다.(resultType없음)
+		if (session.update(UPDATE_USER, userUpdateDTO) != 0) {
+			// 성공시
+			LoginDTO loginDTO = new LoginDTO(userUpdateDTO.getUserId(), userUpdateDTO.getUserPw1());
+			return session.selectOne(LOGIN, loginDTO);
+		} else {
+			// 실패시
+			return null;
 		}
 	}
 }

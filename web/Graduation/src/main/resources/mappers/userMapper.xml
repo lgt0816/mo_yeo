@@ -26,11 +26,26 @@
 	</insert>
 	
 	<select id="checkEmail" resultType="java.lang.String">
-		select STUDENT_EMAIL from student where STUDENT_EMAIL=#{email} 
+		select STUDENT_EMAIL from STUDENT where STUDENT_EMAIL=#{email} 
 	</select>
 	
 	<select id="checkUserId" resultType="java.lang.String">
-		select STUDENT_ID from student where STUDENT_ID= #{userId} 
+		select STUDENT_ID from STUDENT where STUDENT_ID= #{userId} 
 	</select>
+	
+	<update id="updateUserPw" parameterType="com.sungkyul.graduation.dto.UserUpdateDTO">
+		update STUDENT  
+		set STUDENT_PW = #{userPw3}, STUDENT_PHONENUM=#{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE=#{grade}, STUDENT_SCHOOLSTATE=#{schoolState} 
+		where STUDENT_ID = #{userId}
+		<!-- <selectKey keyProperty="Student" resultType="Student" order="AFTER">
+			select * from student where STUDENT_ID = #{userId}
+		</selectKey> -->
+	</update>
+	
+	<update id="updateUser" parameterType="com.sungkyul.graduation.dto.UserUpdateDTO">
+		update STUDENT  
+		set STUDENT_PHONENUM=#{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE=#{grade}, STUDENT_SCHOOLSTATE=#{schoolState} 
+		where STUDENT_ID = #{userId}
+	</update>
 
 </mapper>

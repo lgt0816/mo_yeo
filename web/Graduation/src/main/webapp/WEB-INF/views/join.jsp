@@ -31,14 +31,14 @@ window.addEventListener("load",function(){
     	submitFormData();
     };
     
-    //인증하기버튼 클릭 이벤트
+    <%--인증하기버튼 클릭 이벤트 --%>
     checkAuthorizationCode.onclick=function(){
     	/* const authorizationCode = document.querySelector("#authorizationCode").value; */
     	const jsonData = {inputKey:authorizationCode.value};
     	makePostRequest("/join/authorizationCheck", jsonData, alertAndChecking);
     }
     
-    //인증메일 보내기 버튼 클릭 이벤트
+    <%--인증메일 보내기 버튼 클릭 이벤트 --%>
     sendAuthorizationMail.onclick=function(){
     	/* const email1 = document.querySelector("#email1").value;
     	const email2 = document.querySelector("#email2").value; */
@@ -46,14 +46,14 @@ window.addEventListener("load",function(){
     	makePostRequest("/join/authorizationMailCheck", jsonData, alertAndSendMail);
     };
     
-    //아이디 중복확인버튼 클릭 이벤트
+    <%--아이디 중복확인버튼 클릭 이벤트 --%>
     checkId.onclick=function(){
         /* const userId = userId.value; */
         let jsonData = {userId:userId.value};
         makePostRequest("/join/checkUserId",jsonData, alertAndChecking);
     };
     
-    //ajax통신을 위한 함수
+    <%--ajax통신을 위한 함수 --%>
     function makePostRequest(url, jsonData, responseFounction){
         httpRequest = new XMLHttpRequest();
         if(!httpRequest){
@@ -65,7 +65,7 @@ window.addEventListener("load",function(){
         httpRequest.setRequestHeader('Content-Type', 'application/json');
         httpRequest.send(JSON.stringify(jsonData));
     }
-    //ajax 통신후 결과값을 alert후 인증상태 확인하는 함수
+    <%--ajax 통신후 결과값을 alert후 인증상태 확인하는 함수 --%>
     function alertAndChecking() {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
           if (httpRequest.status === 200) {
@@ -92,7 +92,7 @@ window.addEventListener("load",function(){
           }
         }
       }
-    //ajax 통신의 결과값 alert와 다시 ajax로인증 이메일을 보냄
+    <%--ajax 통신의 결과값 alert와 다시 ajax로인증 이메일을 보냄 --%>
     function alertAndSendMail(){
     	if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
@@ -112,9 +112,9 @@ window.addEventListener("load",function(){
               alert('request에 뭔가 문제가 있습니다.');
             }
           }
-    };
+    }
     
-    <!-- contents null값 체크 함수 -->
+    <%-- contents null값 체크 함수 --%>
     function nullCheck(){
     	const userIdValue = userId.value;
     	const userPw1Value = userPw1.value;
@@ -178,6 +178,7 @@ window.addEventListener("load",function(){
 </head>
 <body>
 	<form action="/joinPost" method="post" role="form" id="joinForm">
+		<%--hidden속성의 input태그는 아이디 중복확인결과와 메일 인증 결과를 value에 담고 있습니다. --%>
 		<input type="hidden" id="checkIdClear" value="false">
 		<input type="hidden" id="authorizationMailClear" value="false">
 

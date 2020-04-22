@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,31 +23,21 @@ import com.sungkyul.graduation.domain.Student;
 import com.sungkyul.graduation.domain.User;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
+import com.sungkyul.graduation.dto.UserUpdateDTO;
 import com.sungkyul.graduation.service.MailService;
 import com.sungkyul.graduation.service.UserService;
+import com.sungkyul.graduation.staticNamesInterface.AjaxNames;
+import com.sungkyul.graduation.staticNamesInterface.SessionNames;
 import com.sungkyul.graduation.util.TempKey;
 
 @Controller
-public class UserController {
+public class UserController implements SessionNames, AjaxNames{
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	private static final String SESSION_ID_CHECK = "userId_Checked"; // 세션에 아이디 중복확인 받았는지 저장하여 체크하는 용도
-	private static final String SESSION_AUTHORIZATION_CODE = "authorizationCode"; // 세션 key 메일인증번호
-	private static final String SESSION_AUTHORIZATION_CLEAR = "authorizationClear"; // 세션key 메일인증 완려
-	private static final String SESSION_LOGINED_USER = "loginedUser";
-	private static final String AJAX_RESULT = "result";
-	private static final String AJAX_FLAG = "flag";
-	private static final boolean AJAX_RESULT_FAIL = false; // 이메일 중복확인 성공
-	private static final boolean AJAX_RESULT_CLEAR = true; // 이메일 중복확인 실패(중복된 이메일인 경우)
-	private static final String AJAX_AUTHORIZATAON_CHECK_CLEAR = "authorizationClear"; // 메일인증 성공
-	private static final String AJAX_AUTHORIZATAON_CHECK_FAILE = "authorizationFaile"; // 메일인증 실패
-	private static final String AJAX_USERID_CHECK_CLEAR = "userIdCheckClear"; // 아이디 중복확인 성공
-	private static final String AJAX_USERID_CHECK_FAILE = "userIdCheckFaile"; // 아이디 중복확인 실패(중복된 아이디인 경우)
-
-	@Inject
-	private UserService userService;
-	@Inject
-	private MailService mailService;
+	private static final String MODEL_USER= "user";
+	
+	@Inject private UserService userService;
+	@Inject private MailService mailService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void login() throws Exception {
@@ -64,12 +55,11 @@ public class UserController {
 		if (user != null) {
 			// 로그인 성공시
 			session.setAttribute(SESSION_LOGINED_USER, user);
-			model.addAttribute("user", user);
-			return "userInfo";
+			return "redirect:/userInfo";
 		} else {
 			// 로그인 실패시
 			model.addAttribute("loginResult", "Login Fail!!");
-			return "redirect:login";
+			return "redirect:/login";
 		}
 
 	}
@@ -110,9 +100,38 @@ public class UserController {
 		HttpSession session = request.getSession();
 		
 		User user = (Student) session.getAttribute(SESSION_LOGINED_USER);
-		model.addAttribute(user);
+		model.addAttribute("user", user);
 
 		return "userInfo";
+	}
+	
+	//정보수정, 비밀번호 변경
+	@PostMapping(value = "/userUpdate.do")
+	public String userUpdate(@ModelAttribute UserUpdateDTO userUpdateDTO, HttpServletRequest request) throws Exception{
+		logger.info("Post userUpdate & userUpdateDTO{}",userUpdateDTO);
+		
+		HttpSession session = request.getSession();
+		User sessionUser = (Student) session.getAttribute(SESSION_LOGINED_USER);
+		String sessionUserPw = sessionUser.getUserPw();	//세션에 저장되있는 유저정보의 비밀번호
+		String userPw = userUpdateDTO.getUserPw1();		//유저가 입력한 원래 비밀번호
+		String updateUserPw = userUpdateDTO.getUserPw3();	//변경하고 자하는 비밀번호
+		userUpdateDTO.setUserId(sessionUser.getUserId());	// 아이디를 세션에서 받아서 넘겨줌
+		
+		//비밀번호 확인(암호화 추가해 주어야 함)
+		if(sessionUserPw.equals(userPw) && !updateUserPw.equals("")) {
+			//비밀번호 변경 + 개인정보 변경
+			User user = userService.updateUserPw(userUpdateDTO);
+			if(user !=null)	//null 인경우는 실패 
+				session.setAttribute(SESSION_LOGINED_USER, user);
+				
+		}else if(sessionUserPw.equals(userPw) && updateUserPw.equals("")) {
+			//개인정보 변경만
+			User user = userService.updateUser(userUpdateDTO);
+			if(user !=null)	//null인 경우는 실패
+				session.setAttribute(SESSION_LOGINED_USER, user);
+		}
+		
+		return "redirect:/userInfo";
 	}
 	
 	//=====================================  AJAX ===========================================

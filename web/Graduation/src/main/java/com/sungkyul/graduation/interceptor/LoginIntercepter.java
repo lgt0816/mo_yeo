@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.sungkyul.graduation.staticNamesInterface.SessionNames;
+
 public class LoginIntercepter extends HandlerInterceptorAdapter implements SessionNames{
 
 	//세션이 있는경우 세션을 날려줌
@@ -17,8 +19,8 @@ public class LoginIntercepter extends HandlerInterceptorAdapter implements Sessi
 		
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute(LOGIN)!=null) {
-			session.removeAttribute(LOGIN);
+		if(session.getAttribute(SESSION_LOGINED_USER)!=null) {
+			session.removeAttribute(SESSION_LOGINED_USER);
 		}
 		
 		return true;
@@ -35,7 +37,7 @@ public class LoginIntercepter extends HandlerInterceptorAdapter implements Sessi
 		//컨트롤에서 받아옴
 		Object user = modelAndView.getModelMap().get("user");
 		if(user !=null) {
-			session.setAttribute(LOGIN, user);
+			session.setAttribute(SESSION_LOGINED_USER, user);
 		}
 		
 	}
