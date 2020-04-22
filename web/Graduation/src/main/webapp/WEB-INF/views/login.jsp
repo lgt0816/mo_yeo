@@ -15,5 +15,6 @@
 		<button type="submit">Sign up</button>
 	</form>
 	<a href="/join">회원가입</a>
+	<a href="/findUser">아이디/비밀번호 찾기</a>
 </body>
 </html>

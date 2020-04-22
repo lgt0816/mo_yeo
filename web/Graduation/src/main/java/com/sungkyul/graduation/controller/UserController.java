@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sungkyul.graduation.domain.Student;
 import com.sungkyul.graduation.domain.User;
+import com.sungkyul.graduation.dto.FindUserIdDTO;
+import com.sungkyul.graduation.dto.FindUserPwDTO;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
 import com.sungkyul.graduation.dto.UserUpdateDTO;
@@ -35,6 +37,8 @@ public class UserController implements SessionNames, AjaxNames{
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	private static final String MODEL_USER= "user";
+	private static final String MODEL_PAGE_SUBTITLE="pageSubtitle";
+	private static final String MODEL_FIND_USER_RESULT="findUserResult";
 	
 	@Inject private UserService userService;
 	@Inject private MailService mailService;
@@ -132,6 +136,43 @@ public class UserController implements SessionNames, AjaxNames{
 		}
 		
 		return "redirect:/userInfo";
+	}
+	
+	// 아이디/비밀번호 찾기 페이지
+	@GetMapping(value = "/findUser")
+	public String findUser() {
+		logger.info("Get findUser.....");
+		return "findUser";
+	}
+	
+	//아이디 찾기
+	@PostMapping(value = "/findUserId")
+	public String findUserId(FindUserIdDTO findIdDTO, Model model) {
+		logger.info("POST findUserId & findIdDTO{}", findIdDTO);
+		String userId = userService.findUserId(findIdDTO);
+		if(userId != null) {
+			//userId를 찾은경우
+			model.addAttribute(MODEL_PAGE_SUBTITLE, "아이디 찾기");
+			model.addAttribute(MODEL_FIND_USER_RESULT, "당신의 아이디는 "+userId +"입니다.");
+		}else {
+			//해당 결과값이 없는경우
+			model.addAttribute(MODEL_PAGE_SUBTITLE, "아이디 찾기");
+			model.addAttribute(MODEL_FIND_USER_RESULT, "해당 결과가 없습니다.");
+			
+		}
+		return "forward:/findUserResult";
+	}
+	
+	//비밀번호 찾기
+	@PostMapping(value = "/findUserPw")
+	public String findUserPw(FindUserPwDTO FindPwDTO, Model model) {
+		
+		return "forward:/findUserResult";
+	}
+	
+	@PostMapping(value = "/findUserResult")
+	public void findUserResult() {
+		
 	}
 	
 	//=====================================  AJAX ===========================================

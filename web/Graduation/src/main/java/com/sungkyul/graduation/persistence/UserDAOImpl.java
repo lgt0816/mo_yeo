@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.sungkyul.graduation.domain.User;
+import com.sungkyul.graduation.dto.FindUserIdDTO;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
 import com.sungkyul.graduation.dto.UserUpdateDTO;
@@ -24,6 +25,7 @@ public class UserDAOImpl implements UserDAO{
 	private static final String CHECK_USER_ID = NS+".checkUserId";
 	private static final String UPDATE_USER_PW =NS+".updateUserPw";
 	private static final String UPDATE_USER=NS+".updateUser";
+	private static final String FIND_USER_ID=NS+".findUserId";
 	
 
 	@Override
@@ -90,5 +92,12 @@ public class UserDAOImpl implements UserDAO{
 			// 실패시
 			return null;
 		}
+	}
+
+	@Override
+	public String findUserId(FindUserIdDTO findIdDTO) {
+		String result = session.selectOne(FIND_USER_ID,findIdDTO);
+		System.out.println(result);
+		return result;
 	}
 }

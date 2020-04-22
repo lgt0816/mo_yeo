@@ -47,5 +47,9 @@
 		set STUDENT_PHONENUM=#{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE=#{grade}, STUDENT_SCHOOLSTATE=#{schoolState} 
 		where STUDENT_ID = #{userId}
 	</update>
+	
+	<select id="findUserId" resultType="String">
+		select STUDENT_ID from STUDENT where STUDENT_NAME=#{name} and STUDENT_EMAIL=#{email}
+	</select>
 
 </mapper>

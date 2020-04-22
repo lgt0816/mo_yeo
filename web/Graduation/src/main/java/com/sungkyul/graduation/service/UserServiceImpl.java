@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.sungkyul.graduation.domain.User;
+import com.sungkyul.graduation.dto.FindUserIdDTO;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
 import com.sungkyul.graduation.dto.UserUpdateDTO;
@@ -47,5 +48,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User updateUser(UserUpdateDTO userUpdateDTO) {
 		return dao.updateUser(userUpdateDTO);
+	}
+
+	//아이디 찾기
+	@Override
+	public String findUserId(FindUserIdDTO findIdDTO) {
+		return dao.findUserId(findIdDTO);
 	}
 }
