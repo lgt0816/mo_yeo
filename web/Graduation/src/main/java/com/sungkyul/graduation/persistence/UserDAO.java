@@ -16,10 +16,12 @@ public interface UserDAO {
 
 	boolean checkUserId(String userId) throws Exception;
 
-	User updateUserPw(UserUpdateDTO userUpdateDTO);
+	User updateUserPw(UserUpdateDTO userUpdateDTO);	//변경할 예정
 
 	User updateUser(UserUpdateDTO userUpdateDTO);
 
 	String findUserId(FindUserIdDTO findIdDTO);
+
+	boolean updateUserPw(String userId, String newPw);
 
 }

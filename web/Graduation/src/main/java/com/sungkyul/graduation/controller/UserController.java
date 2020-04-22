@@ -109,7 +109,7 @@ public class UserController implements SessionNames, AjaxNames{
 		return "userInfo";
 	}
 	
-	//정보수정, 비밀번호 변경
+	//정보수정, 비밀번호 변경	<-- 로직을 바꿔야됨 특히 updateuserPw
 	@PostMapping(value = "/userUpdate.do")
 	public String userUpdate(@ModelAttribute UserUpdateDTO userUpdateDTO, HttpServletRequest request) throws Exception{
 		logger.info("Post userUpdate & userUpdateDTO{}",userUpdateDTO);
@@ -165,8 +165,19 @@ public class UserController implements SessionNames, AjaxNames{
 	
 	//비밀번호 찾기
 	@PostMapping(value = "/findUserPw")
-	public String findUserPw(FindUserPwDTO FindPwDTO, Model model) {
-		
+	public String findUserPw(FindUserPwDTO findPwDTO, Model model) throws Exception{
+		if(userService.checkExistUser(findPwDTO)) {
+			//아이디가 있는경우
+			String tempPw = new TempKey().getKey(8, false); // 임시 비밀번호 생성
+			userService.updateUserPw(findPwDTO.getUserId(), "", tempPw); //임시 비밀번호로 변경
+			mailService.sendTempPwMail(findPwDTO.getEmail(), tempPw);	//입력한 이메일로 임시 비밀번호 전송
+			System.out.println(tempPw);
+			model.addAttribute(MODEL_PAGE_SUBTITLE, "비밀번호 찾기");
+			model.addAttribute(MODEL_FIND_USER_RESULT, "입력하신 이메일로 임시 비밀번호를 전송했습니다.");
+		}else {
+			model.addAttribute(MODEL_PAGE_SUBTITLE, "비밀번호 찾기");
+			model.addAttribute(MODEL_FIND_USER_RESULT, "해당 결과가 없습니다.");
+		}
 		return "forward:/findUserResult";
 	}
 	

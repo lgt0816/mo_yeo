@@ -42,6 +42,12 @@
 		</selectKey> -->
 	</update>
 	
+	<update id="updateUserPw2">
+		update STUDENT  
+		set STUDENT_PW = #{userPw}  
+		where STUDENT_ID = #{userId}
+	</update>
+	
 	<update id="updateUser" parameterType="com.sungkyul.graduation.dto.UserUpdateDTO">
 		update STUDENT  
 		set STUDENT_PHONENUM=#{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE=#{grade}, STUDENT_SCHOOLSTATE=#{schoolState} 
@@ -51,5 +57,7 @@
 	<select id="findUserId" resultType="String">
 		select STUDENT_ID from STUDENT where STUDENT_NAME=#{name} and STUDENT_EMAIL=#{email}
 	</select>
+	
+	
 
 </mapper>

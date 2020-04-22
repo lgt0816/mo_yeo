@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.sungkyul.graduation.domain.User;
 import com.sungkyul.graduation.dto.FindUserIdDTO;
+import com.sungkyul.graduation.dto.FindUserPwDTO;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
 import com.sungkyul.graduation.dto.UserUpdateDTO;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService{
 		return dao.checkUserId(userId);
 	}
 
-	//비밀번호 + 개인정보 변경
+	//비밀번호 + 개인정보 변경		<-- 변경할 예정(삭제예정)
 	@Override
 	public User updateUserPw(UserUpdateDTO userUpdateDTO) {
 		return dao.updateUserPw(userUpdateDTO);
@@ -54,5 +55,30 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String findUserId(FindUserIdDTO findIdDTO) {
 		return dao.findUserId(findIdDTO);
+	}
+
+	//비밀번호 찾기(해당 유저가 있는지 확인)
+	@Override
+	public boolean checkExistUser(FindUserPwDTO findPwDTO) {
+		String userId = dao.findUserId(findPwDTO);
+		
+		if(userId!=null && userId.equals(findPwDTO.getUserId())) {
+			return true;
+		}
+		
+		return false;
+	}
+
+	//비밀번호 변경
+	@Override
+	public boolean updateUserPw(String userId, String userPw, String newPw) {
+		if(userPw.equals("")) {
+			//임시 비밀번호로 바꿈
+			return dao.updateUserPw(userId, newPw);
+			
+		}else {
+			//평소 비밀번호 변경
+			return false;
+		}
 	}
 }

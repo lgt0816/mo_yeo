@@ -54,6 +54,24 @@ public class MailServiceImpl implements MailService{
 		
 		return result;
 	}
+
+	@Override
+	public void sendTempPwMail(String email, String tempPw) throws MessagingException, UnsupportedEncodingException{
+		MailHandler mailHandler = new MailHandler(mailSender);
+		mailHandler.setSubject("[임시 비밀번호 발급]");	//메일 제목
+		mailHandler.setText(new StringBuffer()	//메일 내용
+				.append("<h1>임시 비밀번호 발급</h1>")
+				.append("<p>당신의 임시 비밀번호 입니다.</p>")
+				.append("<p>"+tempPw+"</p>")
+				.append("<p>로그인 후 반드시 비밀번호 변경을 해주세요.</p>")
+				.toString());
+		mailHandler.setFrom("lgt0816@gmail.com", "모여라여기 회원가입");
+		mailHandler.setTo(email);
+		mailHandler.send();
+		
+		logger.info("Send Authorization Mail!!!");
+		
+	}
 	
 
 }

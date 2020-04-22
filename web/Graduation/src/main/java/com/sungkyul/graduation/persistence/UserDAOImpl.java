@@ -24,6 +24,7 @@ public class UserDAOImpl implements UserDAO{
 	private static final String CHECK_EMAIL = NS+".checkEmail";
 	private static final String CHECK_USER_ID = NS+".checkUserId";
 	private static final String UPDATE_USER_PW =NS+".updateUserPw";
+	private static final String UPDATE_USER_PW2 =NS+".updateUserPw2";
 	private static final String UPDATE_USER=NS+".updateUser";
 	private static final String FIND_USER_ID=NS+".findUserId";
 	
@@ -99,5 +100,12 @@ public class UserDAOImpl implements UserDAO{
 		String result = session.selectOne(FIND_USER_ID,findIdDTO);
 		System.out.println(result);
 		return result;
+	}
+
+	@Override
+	public boolean updateUserPw(String userId, String newPw) {
+		LoginDTO tempDTO = new LoginDTO(userId, newPw);
+		
+		return (session.update(UPDATE_USER_PW2, tempDTO)) == 0 ? false : true;
 	}
 }
