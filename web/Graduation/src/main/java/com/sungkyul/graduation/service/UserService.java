@@ -24,7 +24,9 @@ public interface UserService {
 
 	boolean checkExistUser(FindUserPwDTO findPwDTO);
 
-	boolean updateUserPw(String userId, String userPw, String newPw);
+//	boolean updateUserPw(String userId, String userPw, String newPw);
+
+	boolean updateUserPw(String userId, String newPw);
 	
 	
 

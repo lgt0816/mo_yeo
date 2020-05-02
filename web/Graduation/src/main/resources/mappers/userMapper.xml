@@ -22,7 +22,7 @@
 	</select>
 	
 	<insert id="join">
-		insert into student (STUDENT_ID, STUDENT_PW, STUDENT_NAME, STUDENT_PHONENUM, STUDENT_EMAIL, STUDENT_SEX, STUDENT_SCHOOLTYPE, STUDENT_MAJOR, STUDENT_GRADE, STUDENT_SCHOOLSTATE, STUDENT_TOTALWARNINGCOUNT) VALUES (#{userId}, #{userPw}, #{name} , #{phoneNum}, #{email}, #{sex}, #{schoolType}, #{major}, #{grade}, #{schoolState}, 0) 
+		insert into student (STUDENT_ID, STUDENT_PW, STUDENT_NAME, STUDENT_PHONENUM, STUDENT_EMAIL, STUDENT_SEX, STUDENT_SCHOOLTYPE, STUDENT_MAJOR, STUDENT_GRADE, STUDENT_SCHOOLSTATE, STUDENT_TOTALWARNINGCOUNT) VALUES (#{userId}, #{userPw1}, #{name} , #{phoneNum}, #{email}, #{sex}, #{schoolType}, #{major}, #{grade}, #{schoolState}, 0) 
 	</insert>
 	
 	<select id="checkEmail" resultType="java.lang.String">

@@ -26,6 +26,7 @@ import com.sungkyul.graduation.dto.FindUserPwDTO;
 import com.sungkyul.graduation.dto.JoinDTO;
 import com.sungkyul.graduation.dto.LoginDTO;
 import com.sungkyul.graduation.dto.UserUpdateDTO;
+import com.sungkyul.graduation.dto.UserUpdatePwDTO;
 import com.sungkyul.graduation.service.MailService;
 import com.sungkyul.graduation.service.UserService;
 import com.sungkyul.graduation.staticNamesInterface.AjaxNames;
@@ -85,7 +86,7 @@ public class UserController implements SessionNames, AjaxNames{
 				model.addAttribute("joinResult", "join Fail");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 
@@ -94,7 +95,7 @@ public class UserController implements SessionNames, AjaxNames{
 		HttpSession session = request.getSession();
 		session.invalidate();// 세션 초기화
 
-		return "login";
+		return "redirect:/login";
 	}
 	
 	//로그인된 유저 정보조회
@@ -138,6 +139,32 @@ public class UserController implements SessionNames, AjaxNames{
 		return "redirect:/userInfo";
 	}
 	
+	//비밀번호 변경
+	@PostMapping(value = "userUpdatePw.do")
+	public String userUpdatePw(@ModelAttribute UserUpdatePwDTO userPwDTO,  
+			HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		User loginedUser = (User) session.getAttribute(SESSION_LOGINED_USER);
+		String userId = loginedUser.getUserId();
+		String newPw = userPwDTO.getNewPw();
+		
+		//비밀번호1과 비밀번호2가 일치하지 않거나 저장된 비밀번호화 일치하지 않으면 userInfo페이지로 redirect시킴
+		if(!userPwDTO.getUserPw1().equals(userPwDTO.getUserPw2()) || 
+				!userPwDTO.getUserPw1().equals(loginedUser.getUserPw())) {
+			return "redirect:/userInfo";
+		}
+		
+		//비밀번호 변경 실행
+		if(userService.updateUserPw(userId, newPw)) {
+			//비밀번호 변경 성공시 session에 새로운 user정보를 저장
+			LoginDTO tempLoginDTO = new LoginDTO(userId, newPw);
+			User user= userService.login(tempLoginDTO);
+			session.setAttribute(SESSION_LOGINED_USER, user);
+		}
+		
+		return "redirect:/userInfo";
+	}
+	
 	// 아이디/비밀번호 찾기 페이지
 	@GetMapping(value = "/findUser")
 	public String findUser() {
@@ -169,7 +196,7 @@ public class UserController implements SessionNames, AjaxNames{
 		if(userService.checkExistUser(findPwDTO)) {
 			//아이디가 있는경우
 			String tempPw = new TempKey().getKey(8, false); // 임시 비밀번호 생성
-			userService.updateUserPw(findPwDTO.getUserId(), "", tempPw); //임시 비밀번호로 변경
+			userService.updateUserPw(findPwDTO.getUserId(), tempPw); //임시 비밀번호로 변경
 			mailService.sendTempPwMail(findPwDTO.getEmail(), tempPw);	//입력한 이메일로 임시 비밀번호 전송
 			System.out.println(tempPw);
 			model.addAttribute(MODEL_PAGE_SUBTITLE, "비밀번호 찾기");
@@ -183,6 +210,11 @@ public class UserController implements SessionNames, AjaxNames{
 	
 	@PostMapping(value = "/findUserResult")
 	public void findUserResult() {
+		
+	}
+	
+	@GetMapping(value = "/errorPage")
+	public void errorPage() {
 		
 	}
 	

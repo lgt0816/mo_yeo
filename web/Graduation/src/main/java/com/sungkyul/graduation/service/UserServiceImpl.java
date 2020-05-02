@@ -71,14 +71,15 @@ public class UserServiceImpl implements UserService{
 
 	//비밀번호 변경
 	@Override
-	public boolean updateUserPw(String userId, String userPw, String newPw) {
-		if(userPw.equals("")) {
-			//임시 비밀번호로 바꿈
-			return dao.updateUserPw(userId, newPw);
-			
-		}else {
-			//평소 비밀번호 변경
-			return false;
-		}
+	public boolean updateUserPw(String userId, String newPw) {
+//		if(userPw.equals("")) {
+//			//임시 비밀번호로 바꿈
+//			
+//			
+//		}else {
+//			//평소 비밀번호 변경
+//			return false;
+//		}
+		return dao.updateUserPw(userId, newPw);
 	}
 }

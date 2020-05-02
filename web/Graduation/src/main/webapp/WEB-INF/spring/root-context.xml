@@ -19,17 +19,29 @@
 			com.sungkyul.graduation.service,
 			com.sungkyul.graduation.mapstruct" />
 	
-	<!-- MySQL dataSource -->
+	<!-- MySQL dataSource 개인 테스트용-->
     <bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
         <property name="url"
             value="jdbc:mysql://127.0.0.1:3306/graduation?useSSL=false&amp;serverTimezone=UTC">
-            <!--?useSSL=false&amp;serverTimezone=UTC  -->
         </property>
         <property name="username" value="root"></property>
         <property name="password" value="root"></property>
     </bean>
+    
+    
+    <!-- MySQL dataSource moyeo DB -->
+    <!-- <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url"
+            value="jdbc:mysql://121.143.117.134:3306/moyeo_db?useSSL=false&amp;serverTimezone=UTC">
+            ?useSSL=false&amp;serverTimezone=UTC 
+        </property>
+        <property name="username" value="moyeo"></property>
+        <property name="password" value="moyeo"></property>
+    </bean> -->
     
     <!-- 자신의 PC(로컬)에 MySql을 설치했을 경우 -->
     <!-- 
