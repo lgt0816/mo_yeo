@@ -3,14 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<%@ include file="./include/head.jsp" %>
 </head>
 <body>
+	<!-- nav bar -->
+	<%@ include file="./include/navbar.jsp" %>
+	
+	<!-- 컨텐츠 -->
 	<div>${ joinResult }</div>
 	<div>
 		<a href="/login">back to loginPage</a>
 	</div>
+	
+	<!-- 푸터 -->
+	<%@ include file="./include/footer.jsp" %>
+	
 
 </body>
 </html>
