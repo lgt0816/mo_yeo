@@ -1,0 +1,6 @@
+C:\Users\USER\source\repos\TestServer\TestServer\obj\Debug\TestServer.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\TestServer\TestServer\bin\Debug\TestServer.exe.config
+C:\Users\USER\source\repos\TestServer\TestServer\bin\Debug\TestServer.exe
+C:\Users\USER\source\repos\TestServer\TestServer\bin\Debug\TestServer.pdb
+C:\Users\USER\source\repos\TestServer\TestServer\obj\Debug\TestServer.exe
+C:\Users\USER\source\repos\TestServer\TestServer\obj\Debug\TestServer.pdb
