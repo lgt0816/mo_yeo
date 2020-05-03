@@ -4,13 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<%@ include file="./include/head.jsp" %>
 </head>
 <body>
-<h1>${pageSubtitle }</h1>
-<hr>
-<p>${findUserResult }<p>
+	<!-- nav bar -->
+	<%@ include file="./include/navbar.jsp" %>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
+    
+    <div class="container">
+    	<div class="row"><h1 class="ml-4">${pageSubtitle }</h1></div>
+    	<div class="row"><hr class="bg-primary"></div>
+    	<div class="row"><p>${findUserResult }<p></div>
+    </div>    
+	<!-- 풋터 -->
+	<%@ include file="./include/footer.jsp" %>
 
 </body>
 </html>

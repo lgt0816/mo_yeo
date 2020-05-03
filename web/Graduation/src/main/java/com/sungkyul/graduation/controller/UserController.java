@@ -90,7 +90,7 @@ public class UserController implements SessionNames, AjaxNames{
 
 		try {
 			if (userService.join(dto)) {
-				model.addAttribute("joinResult", "join Complite");
+				model.addAttribute("userName", dto.getName());
 			} else {
 				model.addAttribute("joinResult", "join Fail");
 			}

@@ -64,6 +64,9 @@
 	
 	<%@ include file="./include/navbar.jsp" %>
 
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
+    
     <!--컨테이너-->
     <div class="container my-5 py-3 bg-light">
         <form action="/joinPost" method="post" role="form" id="joinForm">
