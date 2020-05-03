@@ -28,6 +28,9 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
                 </div>
+                <div class="form-group text-danger text-center">
+                    ${ loginResult }
+                </div>
 
                 <div class="clearfix text-center">
                     <a href="/findUser" class="pull-right">아이디/비밀번호 찾기</a>

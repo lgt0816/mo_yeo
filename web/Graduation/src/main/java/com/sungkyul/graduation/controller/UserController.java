@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sungkyul.graduation.domain.Student;
 import com.sungkyul.graduation.domain.User;
@@ -40,30 +43,36 @@ public class UserController implements SessionNames, AjaxNames{
 	private static final String MODEL_USER= "user";
 	private static final String MODEL_PAGE_SUBTITLE="pageSubtitle";
 	private static final String MODEL_FIND_USER_RESULT="findUserResult";
+	private static final String MODEL_LOGIN_RESULT = "loginResult";
 	
 	@Inject private UserService userService;
 	@Inject private MailService mailService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void login() throws Exception {
+	public void login(Model model, 
+			@RequestParam(required=false)String loginResult) throws Exception {
 		logger.info("login GET....");
-
+		
+		if(loginResult != null) {
+			model.addAttribute(MODEL_LOGIN_RESULT, loginResult);
+		}
 	}
-
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public String loginPost(LoginDTO dto, Model model, HttpServletRequest requset) throws Exception {
+	public String loginPost(LoginDTO dto, Model model, HttpServletRequest requset, 
+			RedirectAttributes redirect) throws Exception {
 		logger.info("loginPost={}", dto);
 		HttpSession session = requset.getSession();
+		
 
 		User user = userService.login(dto);
 		logger.info("user={}", user);
 		if (user != null) {
 			// 로그인 성공시
 			session.setAttribute(SESSION_LOGINED_USER, user);
-			return "redirect:/userInfo";
+			return "redirect:/";
 		} else {
 			// 로그인 실패시
-			model.addAttribute("loginResult", "Login Fail!!");
+			redirect.addAttribute(MODEL_LOGIN_RESULT, "Login Fail!!");
 			return "redirect:/login";
 		}
 
@@ -210,11 +219,6 @@ public class UserController implements SessionNames, AjaxNames{
 	
 	@PostMapping(value = "/findUserResult")
 	public void findUserResult() {
-		
-	}
-	
-	@GetMapping(value = "/errorPage")
-	public void errorPage() {
 		
 	}
 	

@@ -18,11 +18,11 @@
         <div class="cloud x5"></div>
     </div>
     <div class='critical'>
-        <div class='_error'>404</div>
+        <div class='_error'>500</div>
         <hr>
         <div class='mesage_1'>THE PAGE</div>
-        <div class='mesage_2'>WAS NOT FOUND</div>
-        <a class='btn' href='/login'>홈으로 돌아가기</a>
+        <div class='mesage_2'>INTERNAL SERVER ERROR</div>
+        <a class='btn' href='/'>홈으로 돌아가기</a>
     </div>
 
 </body>
