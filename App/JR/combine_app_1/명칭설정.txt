@@ -1,0 +1,178 @@
+로그인 UI
+activity_main.xml
+MainActivity.java
+
+회원가입 UI
+signup.xml
+SignUpActivity.java
+
+이메일 인증 UI
+emailcheck.xml
+EmailCheckActivity.java
+
+P/w 찾기 UI
+pw.xml
+PwActivity.java
+
+P/W 변경 UI
+pwchange.xml
+PwChangeActivity.java
+
+홈 UI
+home.xml
+HomeActivity.java
+(+MY UI
+my.xml
+MyActivity.java)
+
+내 모집 리스트 UI
+{rclist.xml 
+custom_rclistview.xml 
+RcListViewItem.java 
+RcAdapter.java}
+MyRcListActivity.java 
+
+내 모집 삭제 리스트 UI
+myrcdelete.xml
+NyRcDeleteActivity.java
+
+내 정보 수정 UI
+myrevise.xml
+MyReviseActivity.java
+----------------------
+진행 리스트 UI
+inglist.xml 
+IngListActivity.java 
+
+진행 활동 상세 UI
+ingactivity_detail.xml
+IngActivityDetail.java
+(-study_ing.xml
+-Study_ing.java)
+
+공지 리스트 UI
+notilist.xml
+NotiListActivity.java
+(-study_ing_noti_list.xml
+-Study_ing_noti_list.java)
+
+공지 상세 UI
+
+공지 작성 UI
+notiwrite.xml
+NotiWriteActivity.java
+(-study_ing_noti.xml
+-Study_ing_noti.java)
+
+진행 활동 리스트 UI(생성)
+actlist.xml
+ActListActivity.java
+(-study_ing_acit_list.xml
+-Study_ing_acti_list.java)
+
+진행 활동 보기 UI (수정)
+actlook.xml
+ActLookActivity.java
+
+진행 활동 작성 UI
+actwrite.xml
+ActWriteActivity.java
+(-study_ing_acti.xml
+-Study_ing_acti.java)
+
+경고 리스트 UI
+warninglist.xml
+WarningListActivity.java
+
+경고 사유 UI
+whywarning.xml
+WhyWarningActivity.java
+
+퇴출 리스트 UI
+outlist.xml
+OutListActivity.java
+
+퇴출 사유 UI
+whyout.xml
+WhyOutActivity.java
+------------------------
+모집 리스트 UI
+rclist.xml 
+RcListActivity.java 
+custom_rclistview.xml 
+RcListViewItem.java 
+RcAdapter.java
+
+모집 작성 UI
+rcwrite.xml
+RcWriteActivity.java
+(-study_write.xml
+-Study_write.java)
+
+모집 보기 UI
+rclook.xml
+RcLookActivity.java
+(-study_info.xml
+-study_info_tab1.xml
+-study_info_tab2.xml)
+----------------------
+재)졸업작품 리스트 UI
+gprojectlist.xml
+GProjectListActivity.java
+
+재)졸업작품 등록 UI
+gwrite.xml
+GWriteActivity.java
+(-graduation_write.xml
+-Graduation_write.java)
+
+재)졸업작품 보기 UI
+glook.xml
+GLookActivity.java
+(-graduation_info.xml
+-graduation_info_tab1.xml
+-graduation_info_tab2.xml)
+----------------------
+졸)졸업작품 리스트 UI
+ggprojectcheck.xml
+GGProjectCheckActivity.java
+
+졸)졸업작품 보기 UI
+gglook.xml
+GGLookActivity.java
+---------------------
+다른 과 모집 리스트 UI
+
+
+신청 리스트 UI
+rqlist.xml  
+RqListActivity.java 
+
+완료 리스트 UI
+finishlist.xml
+FinishListActivity.java
+
+완료 활동 생성 UI
+finishcreate.xml
+FinishCreateActivity.java
+(-spec.xml)
+
+완료 활동 보기 UI
+finishlook.xml
+FinishLookActivity.java 
+
+완료 활동 소감 작성 UI
+finishfeel.xml
+FinishFeelActivity.java
+
+포트폴리오 리스트 UI
+pplist.xml
+PPListActivity.java
+
+포트폴리오 생성 UI
+ppcreate.xml
+PPCreateActivity.java
+
+포트포리오 보기 UI
+pplook.xml
+PPLookActivity.java
