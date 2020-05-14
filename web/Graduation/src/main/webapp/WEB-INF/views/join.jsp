@@ -7,6 +7,7 @@
 <html>
 <head>
 	<%@ include file="./include/head.jsp" %>
+	<script type="text/javascript" src="<c:url value="/resources/js/join.js" />"></script>
 </head>
 <body>
 
@@ -149,8 +150,8 @@
                 </div>
                 <div class="col-3">
                     <select class="form-control" name="schoolState" id="schoolState">
-                        <option>재학중</option>
-                        <option>휴학중</option>
+                        <option>재학</option>
+                        <option>휴학</option>
                         <option>졸업</option>
                     </select>
                 </div>

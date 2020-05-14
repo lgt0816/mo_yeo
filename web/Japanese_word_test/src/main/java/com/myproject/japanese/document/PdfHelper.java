@@ -45,7 +45,7 @@ public class PdfHelper implements WordTypes{
 		document = new Document();
 		this.fileName = fileName;
 		KoreanBaseFont = BaseFont.createFont("HYGoThic-Medium","UniKS-UCS2-H",BaseFont.EMBEDDED);
-		JapaneseBaseFont = BaseFont.createFont("KozMinPro-Regular", "UniJIS-UCS2-H", BaseFont.NOT_EMBEDDED);
+		JapaneseBaseFont = BaseFont.createFont("KozMinPro-Regular", "UniJIS-UCS2-H", BaseFont.EMBEDDED);
 	}
 	
 	public void setFont(int textPoint) {

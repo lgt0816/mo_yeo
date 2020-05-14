@@ -193,6 +193,13 @@
 		    <version>2.3.7</version>
 		</dependency>
 		
+	  	<!-- ftp client 사용 -->
+		<dependency>
+		    <groupId>commons-net</groupId>
+		    <artifactId>commons-net</artifactId>
+		    <version>3.6</version>
+		</dependency>  	
+		
 		
 	</dependencies>
     <build>

@@ -5,13 +5,13 @@
 <html>
 <head>
 	<%@ include file="./include/head.jsp" %>
-    <%-- <script type="text/javascript" src='<c:url value="/resources/js/userInfo.js"/>'></script> --%>
+    <script type="text/javascript" src='<c:url value="/resources/js/userInfo.js"/>'></script>
     <script type="text/javascript">
     window.addEventListener("load", function() {
     	const userInfoForm = document.querySelector("#userInfoForm");
     	const schoolType = userInfoForm.querySelector("#schoolType");
     	const major = userInfoForm.querySelector("#major");
-
+    	
     	const schoolTypeOfMajor = {
     		신학대학 : {
     			major : [ "신학부" ]
@@ -37,11 +37,12 @@
     		글로벌경영기술대학 : {
     			major : [ "관광개발학부", "경영학과", "동아시아물류학부", "산업경영공학과" ]
     		},
-    		IT공학대학 : {
+    		IT공과대학 : {
     			major : [ "컴퓨터공학과", "정보통신공학과", "미디어소프트웨어학과", "도시디자인정보공학과" ]
     		}
     	};
-
+    	
+    	
     	// change 이벤트 추가
     	schoolType.addEventListener("change", function(e) {
     		const key = e.target.value;
@@ -68,6 +69,7 @@
     			}
     			schoolType.append(option);
     		}
+    		
     		// 전공 초기화
     		for (let i = 0; i < majors.length; i++) {
     			var option = document.createElement('option');
@@ -104,10 +106,10 @@
     		const schoolState = `${user.schoolState}`;
     		const schoolStates = document.querySelectorAll("#schoolState option");
     		switch (schoolState){
-    		case '재학중':
+    		case '재학':
     			schoolStates[0].selected=true;
     			break;
-    		case '휴학중':
+    		case '휴학':
     			schoolStates[1].selected=true;
     			break;
     		case '졸업':
@@ -115,10 +117,10 @@
     			break;
     		}
     	}
-    	
     	schoolStateInit();
     	gradeInit();
     	schoolTypeAndMajorInit();
+    	
     })
     </script>
 </head>
@@ -154,10 +156,10 @@
 
             <div class="form-group row">
                 <label class="col-3 col-form-label text-right" for="">비밀번호 변경 : </label>
-                <div class="col-6"><input type="password" id="userPw3" name="userPw3" class="form-control"
+                <div class="col-6"><input type="password" id="newPw" name="newPw" class="form-control"
                         placeholder="변경할 비밀번호를 입력해주세요" value="" /></div>
                 <div class="col-3">
-                    <input type="button" id="checkAuthorizationCode" value="비밀번호 변경하기"
+                    <input type="button" id="change-userPw-btn" value="비밀번호 변경하기"
                         class="btn btn-primary">
                 </div>
             </div>
@@ -204,8 +206,8 @@
                 </div>
                 <div class="col-3">
                     <select class="form-control" name="schoolState" id="schoolState">
-                        <option>재학중</option>
-                        <option>휴학중</option>
+                        <option>재학</option>
+                        <option>휴학</option>
                         <option>졸업</option>
                     </select>
                 </div>
@@ -225,7 +227,7 @@
             </div>
 
             <div class="row">
-                <div class="col-6 text-right"><button type="button" id="singUp" class="btn btn-primary">변경하기</button></div>
+                <div class="col-6 text-right"><button type="button" id="modify" class="btn btn-primary">변경하기</button></div>
                 <div class="col-6"><button type="button" id="cancel" class="btn btn-primary">취소</button></div>
             </div>
 

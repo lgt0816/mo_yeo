@@ -13,9 +13,9 @@
     <%@ include file="./include/jumbotron.jsp" %>
     
     <div class="container">
-    	<div class="row"><h1 class="ml-4">${pageSubtitle }</h1></div>
-    	<div class="row"><hr class="bg-primary"></div>
-    	<div class="row"><p>${findUserResult }<p></div>
+    	<div class="row"><h1 class="ml-4">${ pageSubtitle }</h1></div>
+    	<hr class="bg-primary">
+    	<div class="row"><p class="ml-4">${ findUserResult }<p></div>
     </div>    
 	<!-- 풋터 -->
 	<%@ include file="./include/footer.jsp" %>

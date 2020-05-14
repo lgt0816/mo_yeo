@@ -2,6 +2,7 @@ package com.sungkyul.graduation.util;
 
 import java.util.Random;
 
+//임시 키발급
 public class TempKey {
     
     private boolean lowerCheck;

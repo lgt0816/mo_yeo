@@ -128,8 +128,10 @@ public class UserController implements SessionNames, AjaxNames{
 		User sessionUser = (Student) session.getAttribute(SESSION_LOGINED_USER);
 		String sessionUserPw = sessionUser.getUserPw();	//세션에 저장되있는 유저정보의 비밀번호
 		String userPw = userUpdateDTO.getUserPw1();		//유저가 입력한 원래 비밀번호
-		String updateUserPw = userUpdateDTO.getUserPw3();	//변경하고 자하는 비밀번호
+		String updateUserPw = userUpdateDTO.getNewPw();	//변경하고 자하는 비밀번호
 		userUpdateDTO.setUserId(sessionUser.getUserId());	// 아이디를 세션에서 받아서 넘겨줌
+		
+		System.out.println(userUpdateDTO.toString());
 		
 		//비밀번호 확인(암호화 추가해 주어야 함)
 		if(sessionUserPw.equals(userPw) && !updateUserPw.equals("")) {
@@ -141,6 +143,7 @@ public class UserController implements SessionNames, AjaxNames{
 		}else if(sessionUserPw.equals(userPw) && updateUserPw.equals("")) {
 			//개인정보 변경만
 			User user = userService.updateUser(userUpdateDTO);
+			logger.info("개인정보 변경 user : {}", user);
 			if(user !=null)	//null인 경우는 실패
 				session.setAttribute(SESSION_LOGINED_USER, user);
 		}
@@ -149,9 +152,10 @@ public class UserController implements SessionNames, AjaxNames{
 	}
 	
 	//비밀번호 변경
-	@PostMapping(value = "userUpdatePw.do")
+	@PostMapping(value = "/userUpdatePw.do")
 	public String userUpdatePw(@ModelAttribute UserUpdatePwDTO userPwDTO,  
 			HttpServletRequest request) throws Exception{
+		logger.info("userPwDTO:{}", userPwDTO);	//로그찍어봄
 		HttpSession session = request.getSession();
 		User loginedUser = (User) session.getAttribute(SESSION_LOGINED_USER);
 		String userId = loginedUser.getUserId();
@@ -160,6 +164,7 @@ public class UserController implements SessionNames, AjaxNames{
 		//비밀번호1과 비밀번호2가 일치하지 않거나 저장된 비밀번호화 일치하지 않으면 userInfo페이지로 redirect시킴
 		if(!userPwDTO.getUserPw1().equals(userPwDTO.getUserPw2()) || 
 				!userPwDTO.getUserPw1().equals(loginedUser.getUserPw())) {
+			logger.error("Empty userPwDTO or Wrong Password");
 			return "redirect:/userInfo";
 		}
 		

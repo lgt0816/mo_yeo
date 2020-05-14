@@ -28,9 +28,12 @@
 	
 	<!-- 인터셉터 설정 -->
 	<beans:bean id="loginInterceptor" class="com.sungkyul.graduation.interceptor.LoginIntercepter" />
+	
 	<interceptors>
 		<interceptor>
-			<mapping path="/loginPost"/>
+			<mapping path="/userUpdatePw.do"/>
+			<mapping path="/userUpdate.do"/>
+			<mapping path="/userInfo"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	</interceptors>

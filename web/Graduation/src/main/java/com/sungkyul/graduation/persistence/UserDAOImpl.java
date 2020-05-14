@@ -72,7 +72,7 @@ public class UserDAOImpl implements UserDAO{
 		if(session.update(UPDATE_USER_PW, userUpdateDTO) != 0) {
 			//성공시
 			LoginDTO loginDTO= new LoginDTO(userUpdateDTO.getUserId(), 
-					userUpdateDTO.getUserPw3());
+					userUpdateDTO.getNewPw());
 			return session.selectOne(LOGIN, loginDTO);
 		}else {
 			//실패시

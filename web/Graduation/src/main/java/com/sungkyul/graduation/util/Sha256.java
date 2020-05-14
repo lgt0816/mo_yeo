@@ -2,6 +2,7 @@ package com.sungkyul.graduation.util;
 
 import java.security.MessageDigest;
 
+//Sha256 알고리즘으로 암호화
 public class Sha256 {
 	
 	private static final String key = "Welcome mo_yeos homepage";

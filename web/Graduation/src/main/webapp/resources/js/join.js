@@ -28,7 +28,7 @@ window.addEventListener("load",function(){
             파이데이아칼리지:{major:["파이데이아학부"]},
             융합대학:{major:["융합학부"]}, 
             글로벌경영기술대학:{major:["관광개발학부", "경영학과", "동아시아물류학부", "산업경영공학과"]},
-            IT공학대학:{major:["컴퓨터공학과", "정보통신공학과", "미디어소프트웨어학과", "도시디자인정보공학과"]}
+            IT공과대학:{major:["컴퓨터공학과", "정보통신공학과", "미디어소프트웨어학과", "도시디자인정보공학과"]}
         };
     
     
@@ -55,7 +55,13 @@ window.addEventListener("load",function(){
     
     //<%--아이디 중복확인버튼 클릭 이벤트 --%>
     checkId.onclick=function(){
-        /* const userId = userId.value; */
+        const userIdValue = userId.value;
+        if(isNaN(userIdValue)){
+        	alert("학번을 입력해 주세요.")
+        	document.querySelector("#checkIdClear").value ="false";
+        	return;
+        }
+        
         let jsonData = {userId:userId.value};
         makePostRequest("/join/checkUserId",jsonData, alertAndChecking);
     };
