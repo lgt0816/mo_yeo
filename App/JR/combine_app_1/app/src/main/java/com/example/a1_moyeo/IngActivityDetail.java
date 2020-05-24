@@ -1,5 +1,6 @@
 package com.example.a1_moyeo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -72,6 +74,56 @@ public class IngActivityDetail extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),OutListActivity.class);
                 startActivity(intent);
+            }
+        });
+        btn_break.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alarm = new AlertDialog.Builder(IngActivityDetail.this);
+                alarm.setTitle("활동 해체");
+                alarm.setMessage(" 정말 활동을 중단하시겠습니까?");
+                alarm.setCancelable(false);
+                alarm.setPositiveButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+                alarm.setNegativeButton("해체", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog alarm_dialog = alarm.create();
+                alarm_dialog.show();
+            }
+        });
+        btn_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alarm = new AlertDialog.Builder(IngActivityDetail.this);
+                alarm.setTitle("활동 완료");
+                alarm.setMessage(" 활동을 완료시키겠습니까?");
+                alarm.setCancelable(false);
+                alarm.setPositiveButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+                alarm.setNegativeButton("활동 완료", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        Intent intent = new Intent(getApplicationContext(),MtEndActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                AlertDialog alarm_dialog = alarm.create();
+                alarm_dialog.show();
             }
         });
 

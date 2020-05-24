@@ -51,6 +51,7 @@
         <activity android:name=".WhyWarningActivity"/>
         <activity android:name=".OutListActivity"/>
         <activity android:name=".WhyOutActivity"/>
+        <activity android:name=".MtEndActivity"/>
     </application>
 
 </manifest>
