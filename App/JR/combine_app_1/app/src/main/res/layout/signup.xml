@@ -7,7 +7,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
         android:gravity="center"
         android:text="회원가입"
         android:textSize="30dp"
@@ -21,21 +22,30 @@
         android:padding="20dp"
         android:orientation="vertical">
         <LinearLayout
+            android:weightSum="8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="ID : "/>
             <EditText
                 android:id="@+id/ID"
-                android:layout_width="fill_parent"
+                android:layout_weight="5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="ID를 입력하세요"
+                android:hint="ID(학번)를 입력하세요"
                 android:padding="10dp" />
+            <Button
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="중복확인"/>
         </LinearLayout>
 
     <LinearLayout
@@ -99,14 +109,20 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="성별 : "/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="남"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="여"/>
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:text="남자"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자"/>
+        </RadioGroup>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -163,33 +179,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
+            android:weightSum="5.5"
             android:paddingTop="5dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="현재상태 : "/>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:textSize="20dp"
-                android:text="재학"/>
+            <Spinner
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:text="졸업"
-                android:textSize="20dp"/>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:text="휴학"
-                android:textSize="20dp"/>
+            <Spinner
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <LinearLayout
@@ -206,13 +213,11 @@
                 android:text="소속 : "/>
 
             <Spinner
-                android:id="@+id/spinner"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
             <Spinner
-                android:id="@+id/spinnertwo"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
