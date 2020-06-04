@@ -44,11 +44,11 @@
                 <div class="col-6 col"><input type="text" name="userId" class="form-control" placeholder="아이디를 입력해 주세요."/></div>
             </div>
             <div class="form-group row">
-                <label class="col-3 col-form-label text-right font-weight-bold" for="userId">이름 :</label>
+                <label class="col-3 col-form-label text-right font-weight-bold" for="name">이름 :</label>
                 <div class="col-6 col"><input type="text" name="name" class="form-control" placeholder="이름을 입력해 주세요"/></div>
             </div>
             <div class="form-group row">
-                <label class="col-3 col-form-label text-right font-weight-bold" for="userId">이메일 :</label>
+                <label class="col-3 col-form-label text-right font-weight-bold" for="email1">이메일 :</label>
                 <div class="col-3 col"><input type="text" name="email1" class="form-control" placeholder="이메일을 입력해 주세요." /></div>
                 <strong class="col-form-label">@</strong>
                 <div class="col-3 col">

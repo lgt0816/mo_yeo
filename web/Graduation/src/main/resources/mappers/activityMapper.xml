@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sungkyul.graduation.persistence.ActivityMapper">
+
+	<resultMap type="CompletedActivity" id="CompletedActivity">
+		<result property="activityId" column="ACT_ID"/>
+		<result property="title" column="ACT_TITLE"  />
+		<result property="subTitle" column="ACT_STITLE"/>
+		<result property="contents" column="ACT_CONTENT"/>
+		<result property="activityType" column="ACT_TYPENAME"/>
+		<result property="startDay" column="ACT_COMPLETED_SDATE"/>
+		<result property="endDay" column="ACT_COMPLETED_FDATE"/>
+		<result property="completed" column="ACT_IS_COMPLETED"/>
+		<result property="completedUserGrade" column="ACT_GRADE"/>
+	</resultMap>
+
+	<select id="selectActivitys" parameterType="hashmap" resultType="CompletedActivity" >
+		SELECT 
+		ACT.ACT_ID as activityId, 
+		ACT.ACT_TITLE as title, 
+		ACT.ACT_STITLE as subTitle, 
+		ACT_CONTENT as contents, 
+		ACT.ACT_TYPENAME as activityType, 
+		ACT_CT.ACT_COMPLETED_SDATE as startDay, 
+		ACT_CT.ACT_COMPLETED_FDATE as endDay, 
+		ACT_CT.ACT_IS_COMPLETED as completed,
+		ACT_JL.ACT_GRADE as completedUserGrade
+		FROM 
+		activity_tb AS ACT
+		JOIN activity_join_list_tb AS ACT_JL 
+		ON ACT.ACT_ID = ACT_JL.ACT_ID
+		JOIN moyeo_db.activity_progress_completed_tb AS ACT_CT
+		ON ACT.ACT_ID = ACT_CT.ACT_ID
+		WHERE ACT.ACT_TYPENAME= #{activityType} 
+		AND ACT_JL.STUDENT_ID= #{userId} 
+		AND ACT_JL.ACT_GRADE= #{grade};
+	</select>
+	
+	<select id="selectActivity" resultType="CompletedActivity" parameterType="hashmap">
+		SELECT
+			ACT.ACT_ID AS activityId, 
+			ACT.ACT_TITLE AS title, 
+			ACT.ACT_STITLE AS subTitle, 
+			ACT_CONTENT AS contents, 
+			ST.STUDENT_NAME AS author, 
+			ACT.ACT_TYPENAME AS activityType, 
+            ACT_R.RESULT_FINISH AS result,
+            ACT_R.RESULT_CONT AS thought,
+			ACT_CT.ACT_COMPLETED_SDATE AS startDay, 
+			ACT_CT.ACT_COMPLETED_FDATE AS endDay, 
+			ACT_CT.ACT_IS_COMPLETED AS completed,
+			ACT_JL.ACT_GRADE AS completedUserGrade
+		FROM 
+			activity_tb  AS ACT
+		JOIN 
+			activity_join_list_tb AS ACT_JL 
+		ON 
+			ACT.ACT_ID = ACT_JL.ACT_ID
+		JOIN 
+			moyeo_db.activity_progress_completed_tb AS ACT_CT
+		ON 
+			ACT.ACT_ID = ACT_CT.ACT_ID
+		JOIN 
+			student_tb AS ST
+		ON 
+			ACT.STUDENT_ID=ST.STUDENT_ID
+		JOIN 
+			activity_result_tb AS ACT_R
+		ON 
+			ACT_JL.STUDENT_ID = ACT_R.STUDENT_ID
+		WHERE 
+			ACT_JL.STUDENT_ID=#{userId} 
+		AND 
+			ACT.ACT_ID=#{activityId};
+	</select>
+	
+	<select id="selectParticipants" resultType="string" parameterType="hashmap">
+		SELECT 
+			ST.STUDENT_NAME 
+		FROM 
+			activity_join_list_tb AS ACT_JL
+		JOIN 
+			student_tb AS ST
+		ON 
+			ACT_JL.STUDENT_ID = ST.STUDENT_ID
+		WHERE 
+			ACT_JL.ACT_ID =#{activityId};
+	</select>
+	
+	<select id="selectOneResult" resultType="map" parameterType="hashmap">
+		SELECT 
+			RESULT_FINISH AS result, 
+			RESULT_CONT AS thought 
+		FROM 
+			activity_result_tb
+		WHERE 
+			STUDENT_ID=#{userId} 
+		AND 
+			ACT_ID=#{activityId};
+	</select>
+	
+	<insert id="insertResult" parameterType="hashmap">
+		INSERT INTO activity_result_tb 
+			(RESULT_FINISH, RESULT_CONT, STUDENT_ID, ACT_ID)
+		VALUES
+			(#{result}, #{thought}, ${userId}, #{activityId});
+	</insert>
+	
+	<update id="updateResult" parameterType="hashmap">
+		UPDATE activity_result_tb
+		SET 
+			RESULT_FINISH =#{result}, RESULT_CONT =#{thought}
+		WHERE 
+			STUDENT_ID =#{userId}
+		AND 
+			ACT_ID=#{activityId};
+	</update>
+
+</mapper>

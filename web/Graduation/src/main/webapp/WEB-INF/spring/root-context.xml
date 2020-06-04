@@ -21,7 +21,7 @@
 			com.sungkyul.graduation.mapstruct" />
 
 	<!-- 테스트를 위해서 컨트롤러 패키지를 추가 -->
-	<context:component-scan base-package="com.sungkyul.graduation.controller" />
+	<!-- <context:component-scan base-package="com.sungkyul.graduation.controller" /> -->
 
 	<!-- MySQL dataSource 개인 테스트용 -->
 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
@@ -37,7 +37,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://121.143.117.134:3306/moyeo_db?useSSL=false&amp;serverTimezone=UTC">
+			value="jdbc:mysql://220.126.140.61:3306/moyeo_db?useSSL=false&amp;serverTimezone=UTC">
 		</property>
 		<property name="username" value="moyeo"></property>
 		<property name="password" value="moyeo"></property>
@@ -87,6 +87,9 @@
 
 	<!-- ftpClient -->
 	<bean id="ftpClient" class="org.apache.commons.net.ftp.FTPClient" />
+	
+	<!-- Aes256 -->
+	<bean id="Aes256" class="com.sungkyul.graduation.util.Aes256"/>
 	
 
 </beans>

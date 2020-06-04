@@ -3,9 +3,18 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
 	<typeAliases>
 		<typeAlias type="com.sungkyul.graduation.domain.Student" alias="Student" />
 		<typeAlias type="com.sungkyul.graduation.domain.User" alias="User" />
+		<typeAlias type="com.sungkyul.graduation.domain.CompletedActivity" alias="CompletedActivity" />
+		<typeAlias type="com.sungkyul.graduation.domain.Portfolio" alias="Portfolio" />
+		
 	</typeAliases>
+	
         
 </configuration>

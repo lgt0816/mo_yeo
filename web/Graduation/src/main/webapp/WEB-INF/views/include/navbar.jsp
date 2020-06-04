@@ -18,7 +18,7 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<c:if test="${loginedUser != null }">
-					<li class="nav-item"><a class="nav-link" href="#">스터디</a></li>
+					<li class="nav-item"><a class="nav-link" href='/activity/completedStudys'>스터디</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">프로젝트</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">졸업작품</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">포트폴리오</a></li>

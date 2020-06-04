@@ -13,6 +13,7 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sungkyul.graduation.service.FileService;
 
@@ -21,10 +22,10 @@ import com.sungkyul.graduation.service.FileService;
 @Controller
 public class FileController {
 
-	public static final String FTP_HOST ="FTP서버";
-	public static final String FTP_USER_ID = "아이디";
-	public static final String FTP_USER_PW = "비밀번호";
-	public static final String FTP_MAIN_PATH = "/home/graduation/";
+	public static final String FTP_HOST ="dlrmsxortest.asuscomm.com";
+	public static final String FTP_USER_ID = "sungkyul";
+	public static final String FTP_USER_PW = "sungkyul";
+	public static final String FTP_MAIN_PATH = "/home/graduation";
 	
 //	@Inject private FileService fileService;
 	@Inject private FTPClient ftpClient;
@@ -130,7 +131,7 @@ public class FileController {
 		StringBuffer tempPath = new StringBuffer();
 		
 		if(ftpClient.isConnected()) {
-			//paths[0]="" 이므로 1부터 시작
+			//paths[0]="" 이므로 1부터 시작 globalPath : /home/graduation/
 			for(int i=1; i<paths.length;i++) {
 				tempPath.append("/"+paths[i]);
 				if(ftpClient.changeWorkingDirectory(tempPath.toString())) {
@@ -145,4 +146,5 @@ public class FileController {
 		}
 		
 	}
+	
 }

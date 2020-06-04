@@ -18,23 +18,26 @@
 	
 	
 	<select id="login" resultMap="UserResultMap">
-		select * from student where STUDENT_ID= #{userId} and STUDENT_PW = #{userPw}
+		select * from student_tb where STUDENT_ID= #{userId} and STUDENT_PW = #{userPw}
 	</select>
 	
 	<insert id="join">
-		insert into student (STUDENT_ID, STUDENT_PW, STUDENT_NAME, STUDENT_PHONENUM, STUDENT_EMAIL, STUDENT_SEX, STUDENT_SCHOOLTYPE, STUDENT_MAJOR, STUDENT_GRADE, STUDENT_SCHOOLSTATE, STUDENT_TOTALWARNINGCOUNT) VALUES (#{userId}, #{userPw1}, #{name} , #{phoneNum}, #{email}, #{sex}, #{schoolType}, #{major}, #{grade}, #{schoolState}, 0) 
+		insert into student_tb 
+			(STUDENT_ID, STUDENT_PW, STUDENT_NAME, STUDENT_PHONENUM, STUDENT_EMAIL, STUDENT_SEX, STUDENT_SCHOOLTYPE, STUDENT_MAJOR, STUDENT_GRADE, STUDENT_SCHOOLSTATE, STUDENT_TOTALWARNINGCOUNT) 
+		VALUES 
+			(#{userId}, #{userPw1}, #{name} , #{phoneNum}, #{email}, #{sex}, #{schoolType}, #{major}, #{grade}, #{schoolState}, 0) 
 	</insert>
 	
 	<select id="checkEmail" resultType="java.lang.String">
-		select STUDENT_EMAIL from STUDENT where STUDENT_EMAIL=#{email} 
+		select STUDENT_EMAIL from STUDENT_TB where STUDENT_EMAIL=#{email} 
 	</select>
 	
 	<select id="checkUserId" resultType="java.lang.String">
-		select STUDENT_ID from STUDENT where STUDENT_ID= #{userId} 
+		select STUDENT_ID from STUDENT_TB where STUDENT_ID= #{userId} 
 	</select>
 	
 	<update id="updateUserPw" parameterType="com.sungkyul.graduation.dto.UserUpdateDTO">
-		update STUDENT  
+		update STUDENT_TB  
 		set STUDENT_PW = #{newPw}, STUDENT_PHONENUM=#{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE=#{grade}, STUDENT_SCHOOLSTATE=#{schoolState} 
 		where STUDENT_ID = #{userId}
 		<!-- <selectKey keyProperty="Student" resultType="Student" order="AFTER">
@@ -43,19 +46,19 @@
 	</update>
 	
 	<update id="updateUserPw2">
-		update STUDENT  
+		update STUDENT_TB  
 		set STUDENT_PW = #{userPw}  
 		where STUDENT_ID = #{userId}
 	</update>
 	
 	<update id="updateUser" parameterType="com.sungkyul.graduation.dto.UserUpdateDTO">
-		update STUDENT   
+		update STUDENT_TB   
 		set STUDENT_PHONENUM = #{phoneNum}, STUDENT_SCHOOLTYPE = #{schoolType}, STUDENT_GRADE = #{grade}, STUDENT_SCHOOLSTATE = #{schoolState}, STUDENT_MAJOR=#{major}  
 		where STUDENT_ID = #{userId}
 	</update>
 	
 	<select id="findUserId" resultType="String">
-		select STUDENT_ID from STUDENT where STUDENT_NAME=#{name} and STUDENT_EMAIL=#{email}
+		select STUDENT_ID from STUDENT_TB where STUDENT_NAME=#{name} and STUDENT_EMAIL=#{email}
 	</select>
 	
 	

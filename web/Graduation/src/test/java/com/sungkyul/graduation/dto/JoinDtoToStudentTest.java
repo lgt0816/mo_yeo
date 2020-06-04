@@ -1,19 +1,26 @@
 package com.sungkyul.graduation.dto;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.inject.Inject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.sungkyul.graduation.domain.MentorCareer;
-import com.sungkyul.graduation.domain.Student;
+import com.sungkyul.graduation.persistence.ActivityDAOImpl;
+import com.sungkyul.graduation.persistence.PortfolioDAOImpl;
+import com.sungkyul.graduation.util.Aes256;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class JoinDtoToStudentTest {
+	
+	@Inject private ActivityDAOImpl activityDAO;
+	@Inject private Aes256 aes256;
+	@Inject private PortfolioDAOImpl portfolioDAO;
 	
 	@Test
 	public void toStudent() throws Exception{
@@ -44,6 +51,52 @@ public class JoinDtoToStudentTest {
 //		MentorCareer career = new MentorCareer("타이틀", "입사시간", "퇴사시간");
 //		TestDTO testDTO = modelMapper.map(career, TestDTO.class);
 //		System.out.println(testDTO.toString());
+		
+//		for(int i=0 ; i<5; i++) {
+//			Activity activity = new Activity(i);
+//			System.out.println(activity.toString());
+//		}
+		
+//		Map<String, Object> paramMap = new HashMap<String, Object>();
+//		paramMap.put("userId", "20130946");
+//		paramMap.put("activityId", "1");
+//		paramMap.put("result", "결과입니다");
+//		paramMap.put("thought", "소감입니다");
+//		CompletedActivity test = activityDAO.selectActivity(paramMap);
+//		System.out.println(test.toString());
+//		ArrayList<String> test = (ArrayList<String>) activityDAO.selectParticipants(paramMap);
+//		System.out.println(test.toString());
+		
+//		HashMap<String, Object> test =  (HashMap<String, Object>) activityDAO.selectOneResult(paramMap);
+//		System.out.println(test==null);
+//		System.out.println(paramMap.values());
+//		
+//		boolean test =activityDAO.updateResult(paramMap);
+//		System.out.println(test);
+		
+//		List<Portfolio> result =
+//				portfolioDAO.selectPortfolios("20130946");
+//		for(int i=0; i<result.size();i++) {
+//			String portfolioId = Integer.toString(result.get(i).getPortfolioId()); 
+//			List<CompletedActivity> activitys = 
+//					portfolioDAO.selectIncludedACT(portfolioId);
+//			result.get(i).setActivitys((ArrayList<CompletedActivity>) activitys);
+//		}
+//		
+//		System.out.println(result.toString());
+		
+		Map<String, Object> testMap = new HashMap<String, Object>();
+		testMap.put("portfolioId", "1");
+		testMap.put("userId", "20130946");
+		testMap.put("portfolioTitle", "수정");
+		if(portfolioDAO.updataPortfolioTitle(testMap)) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+		
+		
 		
 	}
 

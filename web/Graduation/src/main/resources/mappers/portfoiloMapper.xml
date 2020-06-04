@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sungkyul.graduation.persistence.PortfolioMapper">
+
+	<select id="selectPortfolios" resultType="Portfolio" parameterType="string">
+		SELECT 
+			PORTFOLIO_ID AS portfolioId,
+		    PORTFOLIO_TITLE AS title
+		FROM 
+			portfolio_tb
+		WHERE STUDENT_ID=#{userId};
+	</select>
+	
+	<insert id="insertPortfolio" parameterType="hashmap">
+		INSERT INTO portfolio_tb
+			(PORTFOLIO_TITLE, PORTFOLIO_DATE, STUDENT_ID)
+		VALUES
+			(#{portfoilioId}, ${createDate}, #{userId});
+	</insert>
+	
+	<select id="selectIncludedActivity" resultType="CompletedActivity" parameterType="string">
+		SELECT 
+			ACT.ACT_ID AS activityId, 
+			ACT.ACT_TITLE AS title, 
+			ACT.ACT_STITLE AS subTitle, 
+			ACT.ACT_CONTENT AS contents, 
+			ACT.ACT_TYPENAME AS activityType, 
+			ACT_CT.ACT_COMPLETED_SDATE AS startDay, 
+			ACT_CT.ACT_COMPLETED_FDATE AS endDay, 
+			ACT_CT.ACT_IS_COMPLETED AS completed
+		FROM 
+			portfolio_completed_tb AS PRC
+		JOIN 
+			activity_tb AS ACT
+		ON 
+			PRC.ACT_ID = ACT.ACT_ID
+		JOIN 
+			activity_progress_completed_tb AS ACT_CT
+		ON 
+			ACT_CT.ACT_ID = ACT.ACT_ID
+		WHERE 
+			PRC.PORTFOLIO_ID=#{portfolioId};	
+	</select>
+	
+	<update id="updatePortfolioTitle" parameterType="map">
+		UPDATE portfolio_tb
+		SET
+			PORTFOLIO_TITLE = #{portfolioTitle}
+		WHERE
+			STUDENT_ID=#{userId}
+		AND
+			PORTFOLIO_ID=#{portfolioId};
+	</update>
+	
+	
+
+</mapper>
