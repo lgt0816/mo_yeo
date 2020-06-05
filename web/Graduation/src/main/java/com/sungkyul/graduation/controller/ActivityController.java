@@ -97,12 +97,9 @@ extends com.sungkyul.graduation.controller.Controller implements SessionNames{
 			redirect.addAttribute("activityId", encodedId);	//activityId(인코딩된 활동Id)를 파라미터로 추가시킴
 			return "redirect:/activity/detail";	//상세보기페이지로 리다이렉트
 		}else {
-			//될런지는 모름
 			return "/errorPage/500page";
 		}
 		
 	}
 	
-	
-
 }

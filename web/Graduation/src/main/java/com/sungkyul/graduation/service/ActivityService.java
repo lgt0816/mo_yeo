@@ -14,6 +14,8 @@ public interface ActivityService {
 	Activity getActivity(String loginedUserId, String encodedId);
 
 	boolean updateActivityResult(ActivityModifyFormDTO activityModifyFormDTO, String userId);
+
+	List<CompletedActivity> getAllActivity(String userId);
 	
 
 }

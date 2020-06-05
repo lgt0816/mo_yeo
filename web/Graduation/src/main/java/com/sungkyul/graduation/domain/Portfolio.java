@@ -17,4 +17,6 @@ public class Portfolio {
 	private int portfolioId;
 	private String title;
 	private ArrayList<CompletedActivity> activitys;
+	
+	private String encodedId;
 }

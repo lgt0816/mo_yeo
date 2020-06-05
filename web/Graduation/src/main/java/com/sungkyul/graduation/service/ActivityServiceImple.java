@@ -82,7 +82,8 @@ public class ActivityServiceImple implements ActivityService{
 	
 	
 	@Override
-	public boolean updateActivityResult(ActivityModifyFormDTO activityModifyFormDTO, String userId) {
+	public boolean updateActivityResult(ActivityModifyFormDTO activityModifyFormDTO,
+			String userId) {
 		try {
 			String urlEncodedId = activityModifyFormDTO.getEncodedId();
 			String encodedId = URLDecoder.decode(urlEncodedId, "UTF-8");
@@ -109,6 +110,18 @@ public class ActivityServiceImple implements ActivityService{
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	@Override
+	public List<CompletedActivity> getAllActivity(String userId){
+		List<CompletedActivity> activitys = 
+				activityDAO.selectAllActivitys(userId);
+		
+		for(int i=0 ; i<activitys.size();i++) {
+			aes256.encodingActivity(activitys.get(i));
+		}
+		
+		return activitys;
 	}
 
 

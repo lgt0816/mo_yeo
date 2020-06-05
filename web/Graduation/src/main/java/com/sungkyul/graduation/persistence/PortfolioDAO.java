@@ -15,4 +15,16 @@ public interface PortfolioDAO {
 
 	boolean updataPortfolioTitle(Map<String, Object> paramMap);
 
+	boolean insertPortfolio(Map<String, Object> paramMap);
+
+	boolean deleteAllIncludedACT(Map<String, Object> paramMap);
+
+	boolean insertIncludedACT(Map<String, Object> paramMap);
+
+	boolean deletePortfolio(Map<String, Object> paramMap);
+
+	String selectCurrentPortfolioId(String userId);
+
+	Portfolio selectPortfolio(Map<String, Object> paramMap);
+
 }

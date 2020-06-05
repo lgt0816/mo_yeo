@@ -21,4 +21,6 @@ public interface ActivityDAO {
 
 	boolean updateResult(Map<String, Object> paramMap);
 
+	List<CompletedActivity> selectAllActivitys(String userId);
+
 }

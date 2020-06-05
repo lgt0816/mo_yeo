@@ -14,6 +14,7 @@ import org.apache.commons.net.util.Base64;
 
 import com.sungkyul.graduation.domain.Activity;
 import com.sungkyul.graduation.domain.File;
+import com.sungkyul.graduation.domain.Portfolio;
 
 public class Aes256 {
 	private String iv;
@@ -87,11 +88,8 @@ public class Aes256 {
 			String encodedId = encrypt(Integer.toString(activityId));
 			String urlEncodedId = URLEncoder.encode(encodedId, "UTF-8");
 			activity.setEncodedId(urlEncodedId);
-				
-//			return activity;
 		}catch(Exception e) {
 			e.printStackTrace();
-//			return null;
 		}
 	}
 	public void encodingFile(File file) {
@@ -101,10 +99,20 @@ public class Aes256 {
 			String urlEncodedId = URLEncoder.encode(encodedId, "UTF-8");
 			file.setEncodedId(urlEncodedId);
 				
-//			return file;
 		}catch(Exception e) {
 			e.printStackTrace();
-//			return null;
+		}
+	}
+	
+	public void encodingPortfolio(Portfolio portfolio) {
+		try {
+			int portfolioId = portfolio.getPortfolioId();
+			String encodedId = encrypt(Integer.toString(portfolioId));
+			String urlEncodedId = URLEncoder.encode(encodedId, "UTF-8");
+			portfolio.setEncodedId(urlEncodedId);
+				
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

@@ -1,7 +1,7 @@
 package com.sungkyul.graduation.dto;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -10,8 +10,12 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.sungkyul.graduation.domain.Activity;
+import com.sungkyul.graduation.domain.CompletedActivity;
+import com.sungkyul.graduation.domain.Portfolio;
 import com.sungkyul.graduation.persistence.ActivityDAOImpl;
 import com.sungkyul.graduation.persistence.PortfolioDAOImpl;
+import com.sungkyul.graduation.service.ActivityService;
 import com.sungkyul.graduation.util.Aes256;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +25,7 @@ public class JoinDtoToStudentTest {
 	@Inject private ActivityDAOImpl activityDAO;
 	@Inject private Aes256 aes256;
 	@Inject private PortfolioDAOImpl portfolioDAO;
+	@Inject private ActivityService activityService;
 	
 	@Test
 	public void toStudent() throws Exception{
@@ -80,22 +85,42 @@ public class JoinDtoToStudentTest {
 //			String portfolioId = Integer.toString(result.get(i).getPortfolioId()); 
 //			List<CompletedActivity> activitys = 
 //					portfolioDAO.selectIncludedACT(portfolioId);
+//			for(int j=0 ; j<activitys.size();j++) {
+//				aes256.encodingActivity(activitys.get(j));
+//			}
 //			result.get(i).setActivitys((ArrayList<CompletedActivity>) activitys);
 //		}
-//		
+		
+//		List<Portfolio> result =
+//				portfolioDAO.selectPortfolios("20130946");
+//		//포트폴리오 갯수만큼 돌림
+//		for(int i=0; i<result.size();i++) {
+//			String portfolioId = Integer.toString(result.get(i).getPortfolioId()); 
+//			List<CompletedActivity> activitys = 
+//					portfolioDAO.selectIncludedACT(portfolioId);
+//			//포트폴리오에 등록된 활동들의 id를 암호화후 URL형식으로 인코딩함
+//			for(int j=0 ; j<activitys.size();j++) {
+//				aes256.encodingActivity(activitys.get(j));
+//			}
+//			result.get(i).setActivitys((ArrayList<CompletedActivity>) activitys);
+//		}
+		
 //		System.out.println(result.toString());
 		
-		Map<String, Object> testMap = new HashMap<String, Object>();
-		testMap.put("portfolioId", "1");
-		testMap.put("userId", "20130946");
-		testMap.put("portfolioTitle", "수정");
-		if(portfolioDAO.updataPortfolioTitle(testMap)) {
-			System.out.println("성공");
-		}else {
-			System.out.println("실패");
-		}
+//		Map<String, Object> testMap = new HashMap<String, Object>();
+//		testMap.put("portfolioId", "1");
+//		testMap.put("userId", "20130946");
+//		testMap.put("portfolioTitle", "수정");
+//		if(portfolioDAO.updataPortfolioTitle(testMap)) {
+//			System.out.println("성공");
+//		}else {
+//			System.out.println("실패");
+//		}
 		
 		
+
+		
+				
 		
 		
 	}

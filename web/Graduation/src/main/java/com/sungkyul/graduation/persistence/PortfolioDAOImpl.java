@@ -18,9 +18,16 @@ public class PortfolioDAOImpl implements PortfolioDAO {
 	
 	private static final String NS = "com.sungkyul.graduation.persistence.PortfolioMapper";
 	private static final String SELECT_PORTFOLIOS = NS+".selectPortfolios";
-	private static final String INSERT_PORTFOLIO = NS+".insertPortfolio";
 	private static final String SELECT_INCLUDED_ACTICITY= NS+".selectIncludedActivity";
 	private static final String UPDATE_PORTFOLIO_TITLE= NS+".updatePortfolioTitle";
+	private static final String DELETE_ALL_INCLUDED_ACTIVITY =NS+".deleteAllIncludedActivty";
+	private static final String DELETE_PORTFOLIO =NS+".deletePortfolio";
+	private static final String INSERT_PORTFOLIO = NS+".insertPortfolio";
+	private static final String INSERT_INCLUDED_ACTIVITY =NS+".insertIncludedActivity";
+	private static final String SELECT_CURRNT_PORTFOLIO_ID = NS+".selectCurrentPortfolioId";
+	private static final String SELECT_PORTFOLIO = NS+".selectPortfolio";
+	
+	
 	
 	@Override
 	public List<Portfolio> selectPortfolios(String userId) {
@@ -37,10 +44,58 @@ public class PortfolioDAOImpl implements PortfolioDAO {
 		return result;
 	}
 	
+	
+	//paramMap : userId, portfolioId, portfolioTitle
 	@Override
 	public boolean updataPortfolioTitle(Map<String, Object> paramMap) {
 		
 		return (session.update(UPDATE_PORTFOLIO_TITLE, paramMap)==0)? false : true;
+	}
+	
+	//paramMap : userId, portfolioId
+	@Override
+	public boolean deleteAllIncludedACT(Map<String, Object> paramMap) {
+		
+		return (session.delete(DELETE_ALL_INCLUDED_ACTIVITY, paramMap)==0)? false:true;
+	}
+	
+	//paramMap : uesrId, portfolioId
+	@Override
+	public boolean deletePortfolio(Map<String, Object> paramMap) {
+		
+		return (session.delete(DELETE_PORTFOLIO, paramMap)==0)? false:true;
+	}
+	
+	
+	//paramMap : userId, portfolioTitle
+	@Override
+	public boolean insertPortfolio(Map<String, Object> paramMap) {
+		
+		return (session.insert(INSERT_PORTFOLIO, paramMap)==0)? false:true;
+	}
+	
+	//paramMap : userId, portfolioId, activityId
+	@Override
+	public boolean insertIncludedACT(Map<String, Object> paramMap) {
+		
+		return (session.insert(INSERT_INCLUDED_ACTIVITY, paramMap)==0)? false:true;
+	}
+
+	@Override
+	public String selectCurrentPortfolioId(String userId) {
+		String result = 
+				session.selectOne(SELECT_CURRNT_PORTFOLIO_ID, userId);
+		
+		return result;
+	}
+	
+	//테스트 안해봄
+	//paramMap : userId, portfolioId
+	@Override
+	public Portfolio selectPortfolio(Map<String, Object> paramMap) {
+		Portfolio result = session.selectOne(SELECT_PORTFOLIO, paramMap);
+		
+		return result;
 	}
 
 }

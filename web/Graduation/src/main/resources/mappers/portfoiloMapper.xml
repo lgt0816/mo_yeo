@@ -8,22 +8,16 @@
 		    PORTFOLIO_TITLE AS title
 		FROM 
 			portfolio_tb
-		WHERE STUDENT_ID=#{userId};
+		WHERE 
+			STUDENT_ID=#{userId};
 	</select>
-	
-	<insert id="insertPortfolio" parameterType="hashmap">
-		INSERT INTO portfolio_tb
-			(PORTFOLIO_TITLE, PORTFOLIO_DATE, STUDENT_ID)
-		VALUES
-			(#{portfoilioId}, ${createDate}, #{userId});
-	</insert>
 	
 	<select id="selectIncludedActivity" resultType="CompletedActivity" parameterType="string">
 		SELECT 
 			ACT.ACT_ID AS activityId, 
 			ACT.ACT_TITLE AS title, 
 			ACT.ACT_STITLE AS subTitle, 
-			ACT.ACT_CONTENT AS contents, 
+			ACT.ACT_CONT AS contents, 
 			ACT.ACT_TYPENAME AS activityType, 
 			ACT_CT.ACT_COMPLETED_SDATE AS startDay, 
 			ACT_CT.ACT_COMPLETED_FDATE AS endDay, 
@@ -51,6 +45,84 @@
 		AND
 			PORTFOLIO_ID=#{portfolioId};
 	</update>
+	
+	<delete id="deleteAllIncludedActivty" parameterType="map">
+		DELETE 
+		FROM 
+			portfolio_completed_tb 
+		WHERE 
+			PORTFOLIO_ID = 
+			(SELECT 
+				PORTFOLIO_ID 
+			FROM 
+				portfolio_tb 
+			WHERE 
+				STUDENT_ID=#{userId} 
+			AND 
+				PORTFOLIO_ID=#{portfolioId}
+			);
+	</delete>
+	
+	<delete id="deletePortfolio" parameterType="map">
+		DELETE
+		FROM
+			portfolio_tb
+		WHERE
+			PORTFOLIO_ID=#{portfolioId} 
+		AND 
+			STUDENT_ID=#{userId};			
+	</delete>
+	
+	<insert id="insertPortfolio" parameterType="hashmap">
+		INSERT INTO portfolio_tb
+			(PORTFOLIO_TITLE, PORTFOLIO_DATE, STUDENT_ID)
+		VALUES
+			(#{portfolioTitle}, (SELECT CURDATE()), #{userId});
+	</insert>
+	
+	<insert id="insertIncludedActivity" parameterType="hashmap">
+		INSERT INTO portfolio_completed_tb 
+			(PORTFOLIO_ID, ACT_ID)
+		VALUES
+			(
+				(
+					SELECT 
+						PORTFOLIO_ID 
+					FROM 
+						portfolio_tb 
+					WHERE 
+						STUDENT_ID=#{userId} 
+					AND 
+						PORTFOLIO_ID=#{portfolioId}
+				),
+				#{activityId}
+			);
+	</insert>
+	
+	<select id="selectCurrentPortfolioId" resultType="string" parameterType="string">
+		SELECT 
+			PORTFOLIO_ID 
+		FROM 
+			portfolio_tb 
+		WHERE 
+			STUDENT_ID = #{userId} 
+		ORDER BY 
+			PORTFOLIO_ID
+		DESC
+		LIMIT 1;
+	</select>
+	
+	<select id="selectPortfolio" resultType="Portfolio" parameterType="map">
+		SELECT
+			PORTFOLIO_ID AS portfolioId,
+		    PORTFOLIO_TITLE AS title
+		FROM
+			portfolio_tb
+		WHERE
+			STUDENT_ID = #{userId}
+		AND
+			PORTFOLIO_ID = #{portfolioId};
+	</select>
 	
 	
 

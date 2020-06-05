@@ -30,6 +30,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 	private static final String SELECT_ONE_RESULT = NS+".selectOneResult";
 	private static final String INSERT_RESULT = NS+".insertResult";
 	private static final String UPDATE_RESULT = NS+".updateResult";
+	private static final String SELECT_ALL_ACTIVITYS = NS+".selectAllActivitys";
 	
 	@Override
 	public List<CompletedActivity> selectActivitys(Map<String, Object> paramMap) {
@@ -75,6 +76,15 @@ public class ActivityDAOImpl implements ActivityDAO {
 		// TODO Auto-generated method stub
 		
 		return (session.update(UPDATE_RESULT, paramMap)==0) ? false:true;
+	}
+	
+	
+	@Override
+	public List<CompletedActivity> selectAllActivitys(String userId) {
+		List<CompletedActivity> result = 
+				session.selectList(SELECT_ALL_ACTIVITYS, userId);
+		
+		return result;
 	}
 	
 	

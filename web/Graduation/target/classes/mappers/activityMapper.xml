@@ -6,7 +6,7 @@
 		<result property="activityId" column="ACT_ID"/>
 		<result property="title" column="ACT_TITLE"  />
 		<result property="subTitle" column="ACT_STITLE"/>
-		<result property="contents" column="ACT_CONTENT"/>
+		<result property="contents" column="ACT_CONT"/>
 		<result property="activityType" column="ACT_TYPENAME"/>
 		<result property="startDay" column="ACT_COMPLETED_SDATE"/>
 		<result property="endDay" column="ACT_COMPLETED_FDATE"/>
@@ -19,7 +19,7 @@
 		ACT.ACT_ID as activityId, 
 		ACT.ACT_TITLE as title, 
 		ACT.ACT_STITLE as subTitle, 
-		ACT_CONTENT as contents, 
+		ACT_CONT as contents, 
 		ACT.ACT_TYPENAME as activityType, 
 		ACT_CT.ACT_COMPLETED_SDATE as startDay, 
 		ACT_CT.ACT_COMPLETED_FDATE as endDay, 
@@ -41,7 +41,7 @@
 			ACT.ACT_ID AS activityId, 
 			ACT.ACT_TITLE AS title, 
 			ACT.ACT_STITLE AS subTitle, 
-			ACT_CONTENT AS contents, 
+			ACT_CONT AS contents, 
 			ST.STUDENT_NAME AS author, 
 			ACT.ACT_TYPENAME AS activityType, 
             ACT_R.RESULT_FINISH AS result,
@@ -115,5 +115,27 @@
 		AND 
 			ACT_ID=#{activityId};
 	</update>
+	
+	<select id="selectAllActivitys" parameterType="string" resultType="CompletedActivity">
+		SELECT 
+			ACT.ACT_ID AS activityId,
+		    ACT.ACT_TITLE AS title,
+		    ACT.ACT_TYPENAME AS activityType,
+		    ACT_CT.ACT_COMPLETED_SDATE AS startDay,
+		    ACT_CT.ACT_COMPLETED_FDATE AS endDay,
+		    ACT_CT.ACT_IS_COMPLETED AS completed
+		FROM 
+			activity_tb AS ACT
+		JOIN
+			activity_join_list_tb AS ACT_JL
+		ON
+			ACT.ACT_ID = ACT_JL.ACT_ID
+		JOIN
+			activity_progress_completed_tb AS ACT_CT
+		ON
+			ACT.ACT_ID=ACT_CT.ACT_ID
+		WHERE 
+			ACT_JL.STUDENT_ID=#{userId};
+	</select>
 
 </mapper>
