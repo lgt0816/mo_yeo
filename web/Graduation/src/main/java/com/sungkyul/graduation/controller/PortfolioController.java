@@ -8,6 +8,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class PortfolioController
 	
 	@Inject private PortfolioService portfolioService;
 	@Inject private ActivityService activityService;
-	
+	private static final Logger logger = LoggerFactory.getLogger(PortfolioController.class);
 	//포트폴리오 페이지
 	@GetMapping(value="/portfolio")
 	public String portfolios(HttpServletRequest request, Model model) {
@@ -72,17 +74,17 @@ public class PortfolioController
 	//포트폴리오 수정하기 페이지
 	@GetMapping(value="/portfolio/modify")
 	public String modifyPortfolio(HttpServletRequest request,
-			String encodedId, Model model) {
+			String portfolioId, Model model) {
 		String loginedUserId = getLoginedUserId(request);
-		String encodedPortfolioId = encodedId;
+		String encodedPortfolioId = portfolioId;
 		
 		List<CompletedActivity> allActivitys = 
 				activityService.getAllActivity(loginedUserId);
-		Portfolio includedActivitys = 
-				portfolioService.getPortfolio(loginedUserId, encodedId);
+		Portfolio portfolio = 
+				portfolioService.getPortfolio(loginedUserId, encodedPortfolioId);
 		
 		model.addAttribute("allActivitys", allActivitys);
-		model.addAttribute("includedActivitys", includedActivitys);	//차후에 추가
+		model.addAttribute("portfolio", portfolio);
 		
 		return "portfolioModify";
 	}
@@ -94,8 +96,9 @@ public class PortfolioController
 			@RequestParam(required = false) String[] activityIds,
 			HttpServletRequest request) {
 		String loginedUserId = getLoginedUserId(request);
-		
+
 		portfolioService.modifyPortfolioTitle(loginedUserId, portfolioId, portfolioTitle);
+		
 		if(activityIds==null) {
 			portfolioService.modifyIncludedActivity(loginedUserId, portfolioId);
 		}else {
@@ -112,6 +115,8 @@ public class PortfolioController
 			HttpServletRequest request) {
 		String loginedUserId = getLoginedUserId(request);
 		String encodedId = portfolioId;
+		
+		logger.info("encodedId {}", encodedId);
 		
 		return (portfolioService.deletePortfolio(loginedUserId, encodedId))?
 				"redirect:/portfolio" : "/errorPage/500page";

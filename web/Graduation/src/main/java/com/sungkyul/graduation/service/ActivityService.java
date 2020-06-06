@@ -16,6 +16,8 @@ public interface ActivityService {
 	boolean updateActivityResult(ActivityModifyFormDTO activityModifyFormDTO, String userId);
 
 	List<CompletedActivity> getAllActivity(String userId);
+
+	boolean uploadActivityFiles(String loginedUserId, ActivityModifyFormDTO activityModifyFormDTO);
 	
 
 }

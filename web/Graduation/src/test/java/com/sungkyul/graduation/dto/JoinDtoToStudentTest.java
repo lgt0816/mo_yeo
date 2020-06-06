@@ -1,7 +1,9 @@
 package com.sungkyul.graduation.dto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -11,6 +13,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sungkyul.graduation.domain.Activity;
+import com.sungkyul.graduation.domain.ActivityFile;
+import com.sungkyul.graduation.domain.ActivityPlan;
+import com.sungkyul.graduation.domain.ActivityPlanStatus;
 import com.sungkyul.graduation.domain.CompletedActivity;
 import com.sungkyul.graduation.domain.Portfolio;
 import com.sungkyul.graduation.persistence.ActivityDAOImpl;
@@ -117,10 +122,22 @@ public class JoinDtoToStudentTest {
 //			System.out.println("실패");
 //		}
 		
+//		Map<String, Object> paramMap = new HashMap<String, Object>();
+//		paramMap.put("userId", "20130946");
+//		paramMap.put("portfolioId","5");
+//		Portfolio test = portfolioDAO.selectPortfolio(paramMap);
+//		
+//		System.out.println(test.toString());
 		
-
 		
-				
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("fileId", "11");
+		paramMap.put("userId", "20130946");
+		
+		boolean result = activityDAO.deleteActivityFile(paramMap);
+		System.out.println(result);
+		
+		
 		
 		
 	}

@@ -26,6 +26,11 @@ public class FileControllerTest {
 	@Test
 	public void ftpConnectTest() throws IOException {
 		if(fileController.ftpConnect()) {
+			File testFile = new File("D:\\6최종보고서_8조.hwp");
+			FileInputStream testInputStream = new FileInputStream(testFile);
+			
+			String FTPUrl = fileController.FTP_MAIN_PATH+"/이근택/스터디/20130946/";
+			fileController.ftpFileUpload(FTPUrl, "6최종보고서_8조.hwp", testInputStream);
 			fileController.ftpDisconnect();
 		}
 	}

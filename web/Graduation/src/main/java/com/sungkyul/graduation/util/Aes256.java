@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.net.util.Base64;
 
 import com.sungkyul.graduation.domain.Activity;
-import com.sungkyul.graduation.domain.File;
+import com.sungkyul.graduation.domain.ActivityFile;
 import com.sungkyul.graduation.domain.Portfolio;
 
 public class Aes256 {
@@ -92,7 +92,7 @@ public class Aes256 {
 			e.printStackTrace();
 		}
 	}
-	public void encodingFile(File file) {
+	public void encodingFile(ActivityFile file) {
 		try {
 			int fileId = file.getFileId();
 			String encodedId = encrypt(Integer.toString(fileId));

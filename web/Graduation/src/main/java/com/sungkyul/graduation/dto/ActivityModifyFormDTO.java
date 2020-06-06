@@ -17,9 +17,11 @@ import lombok.ToString;
 @ToString
 public class ActivityModifyFormDTO {
 	
-	private String activityId;
+//	private String activityId;
 	private String result;	//결과
 	private String thought;	//소감
+	private String activityType;
+	private String activityTitle;
 	private List<MultipartFile> files;
 	
 	private String encodedId;	//암호화된 활동 id

@@ -89,7 +89,6 @@ public class PortfolioDAOImpl implements PortfolioDAO {
 		return result;
 	}
 	
-	//테스트 안해봄
 	//paramMap : userId, portfolioId
 	@Override
 	public Portfolio selectPortfolio(Map<String, Object> paramMap) {

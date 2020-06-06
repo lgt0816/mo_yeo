@@ -15,19 +15,16 @@ import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.sungkyul.graduation.service.FileService;
-
 
 
 @Controller
 public class FileController {
 
 	public static final String FTP_HOST ="dlrmsxortest.asuscomm.com";
-	public static final String FTP_USER_ID = "sungkyul";
-	public static final String FTP_USER_PW = "sungkyul";
+	private static final String FTP_USER_ID = "sungkyul";
+	private static final String FTP_USER_PW = "sungkyul";
 	public static final String FTP_MAIN_PATH = "/home/graduation";
 	
-//	@Inject private FileService fileService;
 	@Inject private FTPClient ftpClient;
 	
 	//ftpClient로 서버 접속

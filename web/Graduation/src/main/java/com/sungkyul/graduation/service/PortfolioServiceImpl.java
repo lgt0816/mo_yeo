@@ -92,10 +92,8 @@ public class PortfolioServiceImpl implements PortfolioService{
 			paramMap.put("userId", userId);
 			paramMap.put("portfolioId", portfolioId);
 			
-			if(portfolioDAO.deleteAllIncludedACT(paramMap)) {
-				return portfolioDAO.deletePortfolio(paramMap);
-			}else
-				return false;
+			portfolioDAO.deleteAllIncludedACT(paramMap);
+			return portfolioDAO.deletePortfolio(paramMap);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -114,6 +112,7 @@ public class PortfolioServiceImpl implements PortfolioService{
 			
 			Portfolio result = portfolioDAO.selectPortfolio(paramMap);
 			result.setActivitys((ArrayList<CompletedActivity>) portfolioDAO.selectIncludedACT(portfolioId));
+			result.setEncodedId(encodedId);
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();

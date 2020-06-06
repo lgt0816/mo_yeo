@@ -44,8 +44,6 @@
 			ACT_CONT AS contents, 
 			ST.STUDENT_NAME AS author, 
 			ACT.ACT_TYPENAME AS activityType, 
-            ACT_R.RESULT_FINISH AS result,
-            ACT_R.RESULT_CONT AS thought,
 			ACT_CT.ACT_COMPLETED_SDATE AS startDay, 
 			ACT_CT.ACT_COMPLETED_FDATE AS endDay, 
 			ACT_CT.ACT_IS_COMPLETED AS completed,
@@ -64,10 +62,6 @@
 			student_tb AS ST
 		ON 
 			ACT.STUDENT_ID=ST.STUDENT_ID
-		JOIN 
-			activity_result_tb AS ACT_R
-		ON 
-			ACT_JL.STUDENT_ID = ACT_R.STUDENT_ID
 		WHERE 
 			ACT_JL.STUDENT_ID=#{userId} 
 		AND 
@@ -137,5 +131,89 @@
 		WHERE 
 			ACT_JL.STUDENT_ID=#{userId};
 	</select>
+	
+	<select id="selectActivityResult" parameterType="map" resultType="com.sungkyul.graduation.domain.ActivityResult">
+		SELECT 
+			RESULT_FINISH AS result, 
+		    RESULT_CONT AS thought
+		FROM 
+			activity_result_tb
+		WHERE 
+			STUDENT_ID=#{userId} 
+		AND 
+		    ACT_ID=#{activityId};
+	</select>
+	
+	<select id="selectActivityPlans" parameterType="string" resultType="com.sungkyul.graduation.domain.ActivityPlan">
+		SELECT 
+			ACT_PLAN_ID AS planId, 
+		    ACT_PLAN_TITLE AS planTitle, 
+		    ACT_PLAN_CONT AS planContents, 
+		    ACT_PLAN_START AS planStartDay, 
+		    ACT_PLAN_FINISH AS planEndDay
+		FROM 
+			activity_plan_tb
+		WHERE 
+			ACT_ID=#{activityId};
+	</select>
+	
+	<select id="selectActivityPlanStatusList" parameterType="map" resultType="com.sungkyul.graduation.domain.ActivityPlanStatus">
+		SELECT 
+			ACT_PLAN_PRO_ID AS planStatusId,
+		    ACT_PLAN_PRO_TITLE AS planStatusTitle,
+		    ACT_PLAN_PRO_CONT AS planStatusContents
+		FROM 
+			activity_plan_progress_tb
+		WHERE 
+			STUDENT_ID=#{userId} 
+		AND 
+			ACT_ID=#{activityId}
+		AND 
+		    ACT_PLAN_ID=#{activityPlanId};
+	</select>
+	
+	<insert id="insertActivityFile" parameterType="map">
+		INSERT 
+		INTO file_tb 
+			(`FILE_NAME`, `FILE_PATH`, `FILE_SIZE`, `FILE_DATE`, `ACT_ID`, `STUDENT_ID`) 
+		VALUES 
+			(#{fileName}, #{filePath}, #{fileSize}, (SELECT CURDATE()), #{activityId}, #{userId});
+	</insert>
+	
+	<select id="selectActivityFiles" parameterType="map" resultType="com.sungkyul.graduation.domain.ActivityFile">
+		SELECT 
+			FILE_ID AS fileId,
+		    FILE_NAME AS fileName,
+		    FILE_PATH AS filePath,
+		    FILE_SIZE AS fileSize
+		FROM 
+			file_tb 
+		WHERE 
+			ACT_ID=#{activityId}
+		AND 
+			STUDENT_ID = #{userId};
+	</select>
+	
+	<select id="selectActivityFile" parameterType="map" resultType="com.sungkyul.graduation.domain.ActivityFile">
+		SELECT 
+			FILE_ID AS fileId,
+		    FILE_NAME AS fileName,
+		    FILE_PATH AS filePath,
+		    FILE_SIZE AS fileSize
+		FROM 
+			file_tb 
+		WHERE 
+			FILE_ID=#{fileId};
+	</select>
+	
+	<delete id="deleteActivityFile" parameterType="map">
+		DELETE
+		FROM
+			file_tb
+		WHERE
+			FILE_ID=#{fileId} 
+		AND 
+			STUDENT_ID=#{userId};	
+	</delete>
 
 </mapper>

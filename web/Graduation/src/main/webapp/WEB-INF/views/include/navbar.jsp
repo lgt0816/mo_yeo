@@ -19,9 +19,10 @@
 				</a></li>
 				<c:if test="${loginedUser != null }">
 					<li class="nav-item"><a class="nav-link" href='/activity/completedStudys'>스터디</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">프로젝트</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">졸업작품</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">포트폴리오</a></li>
+					<li class="nav-item"><a class="nav-link" href="/activity/completedInternationals">공모전</a></li>
+					<li class="nav-item"><a class="nav-link" href="/activity/completedProjects">프로젝트</a></li>
+					<li class="nav-item"><a class="nav-link" href="/activity/completedGraduations">졸업작품</a></li>
+					<li class="nav-item"><a class="nav-link" href="/portfolio">포트폴리오</a></li>
 				</c:if>
 			</ul>
 		</div>

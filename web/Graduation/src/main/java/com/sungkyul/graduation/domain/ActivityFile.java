@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class File {
+public class ActivityFile {
 	private int fileId;
 	private String fileName;
 	private String fileSize;
@@ -20,12 +20,12 @@ public class File {
 	
 	private String encodedId;
 
-	public File(int fileId, String filName, String fileSize, String filePath, String fileDate) {
-		this.fileId = fileId;
-		this.fileName = filName;
-		this.fileSize = fileSize;
-		this.filePath = filePath;
-		this.fileDate = fileDate;
-	}
+//	public File(int fileId, String filName, String fileSize, String filePath, String fileDate) {
+//		this.fileId = fileId;
+//		this.fileName = filName;
+//		this.fileSize = fileSize;
+//		this.filePath = filePath;
+//		this.fileDate = fileDate;
+//	}
 	
 }
