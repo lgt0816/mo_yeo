@@ -1,0 +1,7 @@
+C:\Users\USER\source\repos\App Server\App Server\bin\Debug\App Server.exe.config
+C:\Users\USER\source\repos\App Server\App Server\bin\Debug\App Server.exe
+C:\Users\USER\source\repos\App Server\App Server\bin\Debug\App Server.pdb
+C:\Users\USER\source\repos\App Server\App Server\obj\Debug\App Server.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\App Server\App Server\obj\Debug\App Server.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\App Server\App Server\obj\Debug\App Server.exe
+C:\Users\USER\source\repos\App Server\App Server\obj\Debug\App Server.pdb
