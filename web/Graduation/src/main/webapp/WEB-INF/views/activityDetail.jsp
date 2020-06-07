@@ -127,7 +127,8 @@ td {
 		</table>
 		<div class="text-right">
 			<a href="/activity/modify?activityId=${activity.encodedId }"
-				class="btn btn-primary">수정</a> <a href="${goListUrl }"
+				class="btn btn-primary">수정</a> 
+			<a href="${goListUrl }"
 				class="btn btn-primary">목록</a>
 		</div>
 	</div>

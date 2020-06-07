@@ -1,7 +1,10 @@
 package com.sungkyul.graduation.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.SocketException;
 
@@ -13,7 +16,6 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 
@@ -95,14 +97,35 @@ public class FileController {
 	}
 	
 	//ftp서버에서 파일 다운로드시 해당 파일의 인풋스트림을 반환
-	public InputStream getFtpFileInputStream(String serverFilePath, String fileName) {
+//	public InputStream getFtpFileInputStream(String serverFilePath, String fileName) {
+//		try {
+//			
+//			return ftpClient.retrieveFileStream(serverFilePath+fileName);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return null;
+//		}
+//	}
+	
+	public File getFile(String serverFilePath, String fileName) {
+		File file = null;
 		try {
-			return ftpClient.retrieveFileStream(serverFilePath+fileName);
+			if(ftpConnect()) {
+				file=new File(fileName);
+				OutputStream os = new FileOutputStream(file);
+				InputStream is = ftpClient.retrieveFileStream(serverFilePath+fileName);
+				is.transferTo(os);
+				ftpDisconnect();
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}
+		
+		return file;
+		
+		
 	}
 	
 	public long getFileSize(String fileName){

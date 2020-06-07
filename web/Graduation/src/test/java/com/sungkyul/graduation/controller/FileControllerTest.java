@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.inject.Inject;
 
@@ -26,12 +27,7 @@ public class FileControllerTest {
 	@Test
 	public void ftpConnectTest() throws IOException {
 		if(fileController.ftpConnect()) {
-			File testFile = new File("D:\\6최종보고서_8조.hwp");
-			FileInputStream testInputStream = new FileInputStream(testFile);
 			
-			String FTPUrl = fileController.FTP_MAIN_PATH+"/이근택/스터디/20130946/";
-			fileController.ftpFileUpload(FTPUrl, "6최종보고서_8조.hwp", testInputStream);
-			fileController.ftpDisconnect();
 		}
 	}
 	

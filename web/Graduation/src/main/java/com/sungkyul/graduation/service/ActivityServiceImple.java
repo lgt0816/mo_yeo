@@ -1,7 +1,8 @@
 package com.sungkyul.graduation.service;
 
+import java.io.File;
+import java.io.InputStream;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sungkyul.graduation.controller.ActivityController;
 import com.sungkyul.graduation.controller.FileController;
 import com.sungkyul.graduation.domain.Activity;
 import com.sungkyul.graduation.domain.ActivityFile;
@@ -205,6 +205,50 @@ public class ActivityServiceImple implements ActivityService{
 		
 		return filePath;
 	}
+
+	//파일 삭제(db에서만 삭제)
+	@Override
+	public boolean deleteActivityFile(String loginedUserId, String fileId) {
+		
+		try {
+			String _encodedId = fileId;
+			String _fileId = aes256.decrypt(_encodedId);
+			Map<String, Object> _paramMap = new HashMap<String, Object>();
+			_paramMap.put("userId", loginedUserId);
+			_paramMap.put("fileId", _fileId);
+			
+			return activityDAO.deleteActivityFile(_paramMap);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	//활동의 파일을 가져옴
+	@Override
+	public ActivityFile getActivityFile(String fileId) {
+		try {
+			String _encodedId = fileId;
+			String _fileId = aes256.decrypt(_encodedId);
+			ActivityFile result = activityDAO.selectActivityFile(_fileId);			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	//파일을 가져옴
+	@Override
+	public File getActivityRealFile(ActivityFile activityFile) {
+		File file =fileController.getFile(activityFile.getFilePath(), activityFile.getFileName());
+		
+		return file;
+	}
+	
+	
 
 
 

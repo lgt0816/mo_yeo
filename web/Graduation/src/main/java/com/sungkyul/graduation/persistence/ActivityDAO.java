@@ -37,8 +37,10 @@ public interface ActivityDAO {
 
 	List<ActivityFile> selectActivityFiles(Map<String, Object> paramMap);
 
-	ActivityFile selectActivityFile(Map<String, Object> paramMap);
+//	ActivityFile selectActivityFile(Map<String, Object> paramMap);
 
 	boolean deleteActivityFile(Map<String, Object> paramMap);
+
+	ActivityFile selectActivityFile(String fileId);
 
 }

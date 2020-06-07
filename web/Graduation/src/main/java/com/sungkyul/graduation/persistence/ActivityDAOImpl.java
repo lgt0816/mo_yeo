@@ -142,8 +142,8 @@ public class ActivityDAOImpl implements ActivityDAO {
 	
 	//paramMap : fileId
 	@Override
-	public ActivityFile selectActivityFile(Map<String, Object> paramMap) {
-		ActivityFile result = session.selectOne(SELECT_ACTIVITY_FILE,paramMap);
+	public ActivityFile selectActivityFile(String fileId) {
+		ActivityFile result = session.selectOne(SELECT_ACTIVITY_FILE,fileId);
 		
 		return result;
 	}

@@ -1,5 +1,7 @@
 package com.sungkyul.graduation.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -10,6 +12,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +25,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.itextpdf.text.Document;
 import com.sungkyul.graduation.domain.Activity;
+import com.sungkyul.graduation.domain.ActivityFile;
 import com.sungkyul.graduation.domain.CompletedActivity;
 import com.sungkyul.graduation.dto.ActivityModifyFormDTO;
 import com.sungkyul.graduation.service.ActivityService;
 import com.sungkyul.graduation.staticNamesInterface.SessionNames;
+
 
 @Controller
 public class ActivityController extends com.sungkyul.graduation.controller.Controller implements SessionNames {
@@ -100,7 +106,7 @@ public class ActivityController extends com.sungkyul.graduation.controller.Contr
 		return "completedActivitys";
 	}
 
-	// 활동 상세 보기 (파일 추가 안되있음)
+	// 활동 상세 보기
 	@GetMapping("/activity/detail")
 	public String completedStudyItem(@RequestParam("activityId") String activityId, HttpServletRequest request,
 			Model model) {
@@ -166,26 +172,47 @@ public class ActivityController extends com.sungkyul.graduation.controller.Contr
 			return "/errorPage/500page";
 	}
 	
-	//미구현
+	//파일 다운로드
 	@GetMapping("/activity/fileDownload")
-	public String activityFileDownload(HttpServletRequest request
-			, String fileId) {
+	public void activityFileDownload(HttpServletRequest request
+			,HttpServletResponse response ,String fileId) throws IOException {
+		String fileName = null;
 		
-		return null;
+		ActivityFile activityFile = activityService.getActivityFile(fileId);
+		File realFile = activityService.getActivityRealFile(activityFile);
+		InputStream is = new FileInputStream(realFile);
+		
+		byte[] fileByte = is.readAllBytes();
+		fileName = activityFile.getFileName();
+		
+		is.close();
+		
+		response.setContentType("application/octet-stream");
+        response.setContentLength(fileByte.length);
+        response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(fileName,"UTF-8")+"\";");
+        response.setHeader("Content-Transfer-Encoding", "binary");
+        response.getOutputStream().write(fileByte);
+          
+        response.getOutputStream().flush();
+        response.getOutputStream().close();
+		
 	}
 	
-	//미구현
+
+	//파일 삭제
 	@GetMapping("/activity/fileDelete")
 	public String activityFileDelete(HttpServletRequest request
 			, String fileId, String activityId, RedirectAttributes redirect) throws UnsupportedEncodingException {
-		System.out.println("=======================================");
-		System.out.println("fileId : "+fileId);
-		System.out.println("activityId : "+activityId);
-		System.out.println("=======================================");
+		String loginedUserId = getLoginedUserId(request);
+		
+		if(!activityService.deleteActivityFile(loginedUserId, fileId)) {
+			return "/errorPage/500page";
+		}
 		
 		
 		redirect.addAttribute("activityId", activityId);
 		return "redirect:/activity/modify";
 	}
+	
 
 }

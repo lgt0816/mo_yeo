@@ -194,7 +194,7 @@
 			STUDENT_ID = #{userId};
 	</select>
 	
-	<select id="selectActivityFile" parameterType="map" resultType="com.sungkyul.graduation.domain.ActivityFile">
+	<select id="selectActivityFile" parameterType="string" resultType="com.sungkyul.graduation.domain.ActivityFile">
 		SELECT 
 			FILE_ID AS fileId,
 		    FILE_NAME AS fileName,
