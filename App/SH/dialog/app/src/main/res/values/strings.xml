@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dialog</string>
+    <string name="selected_date">The date you picked will be shown here.</string>
+    <string name="pick_date">pick date</string>
+    <string name="action_settings">Setting</string>
+    <string name="auto_highlight_selected_date_span">Auto highlight selecte date span</string>
+</resources>
