@@ -1,7 +1,0 @@
-C:\Users\USER\source\repos\ServerCode\ServerCode\bin\Debug\ServerCode.exe.config
-C:\Users\USER\source\repos\ServerCode\ServerCode\bin\Debug\ServerCode.exe
-C:\Users\USER\source\repos\ServerCode\ServerCode\bin\Debug\ServerCode.pdb
-C:\Users\USER\source\repos\ServerCode\ServerCode\obj\Debug\ServerCode.csproj.CoreCompileInputs.cache
-C:\Users\USER\source\repos\ServerCode\ServerCode\obj\Debug\ServerCode.exe
-C:\Users\USER\source\repos\ServerCode\ServerCode\obj\Debug\ServerCode.pdb
-C:\Users\USER\source\repos\ServerCode\ServerCode\obj\Debug\ServerCode.csprojAssemblyReference.cache
