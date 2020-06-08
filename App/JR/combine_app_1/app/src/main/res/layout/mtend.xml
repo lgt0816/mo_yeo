@@ -45,7 +45,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="멘토님의 피드백이 어땠나요?"
+                    android:text="멘토님의 피드백은 충분했나요?"
                     android:paddingLeft="20dp"
                     android:textSize="20dp" />
 
@@ -60,7 +60,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="꼼꼼합니다"
+                        android:text="충분했습니다"
                         android:textSize="15dp" />
 
                     <RadioButton
@@ -68,7 +68,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="대략적입니다"
+                        android:text="보통입니다"
                         android:textSize="15dp" />
 
                     <RadioButton
@@ -76,7 +76,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="이해하기\n어렵습니다"
+                        android:text="부족했습니다"
                         android:textSize="15dp" />
                 </RadioGroup>
 
@@ -84,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:text="멘토님의 답장속도가 어땠나요?"
+                    android:text="멘토님의 답장속도는 어땠나요?"
                     android:paddingLeft="20dp"
                     android:textSize="20dp" />
 
@@ -123,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:text="멘토님의 도움이 어땠나요?"
+                    android:text="멘토님의 도움이 충분했나요?"
                     android:paddingLeft="20dp"
                     android:textSize="20dp" />
 
@@ -138,7 +138,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="좋습니다"
+                        android:text="충분했습니다"
                         android:textSize="15dp" />
 
                     <RadioButton
@@ -154,7 +154,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="도움이 되지 \n않았습니다"
+                        android:text="부족했습니다"
                         android:textSize="15dp" />
                 </RadioGroup>
 

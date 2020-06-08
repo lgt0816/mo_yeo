@@ -3,6 +3,7 @@ activity_main.xml
 MainActivity.java
 
 회원가입 UI
+MemberDTO.java
 signup.xml
 SignUpActivity.java
 
@@ -10,7 +11,7 @@ SignUpActivity.java
 emailcheck.xml
 EmailCheckActivity.java
 
-P/w 찾기 UI
+P/W 찾기 UI
 pw.xml
 PwActivity.java
 
@@ -176,3 +177,7 @@ PPCreateActivity.java
 포트포리오 보기 UI
 pplook.xml
 PPLookActivity.java
+----------------------
+멘토 평가 UI
+mtend.xml
+MtEndActivity.java

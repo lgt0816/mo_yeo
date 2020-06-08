@@ -1,17 +1,27 @@
 package com.example.a1_moyeo;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Calendar;
+
 public class ActWriteActivity extends AppCompatActivity {
+    private TextView STtext, EDtext;
+    private Button STbtn, EDbtn;
+    private DatePickerDialog.OnDateSetListener callbackMethod;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +33,48 @@ public class ActWriteActivity extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        STtext = (TextView)findViewById(R.id.sttext);
+        EDtext = (TextView)findViewById(R.id.edtext);
+        STbtn =(Button)findViewById(R.id.stbtn);
+        STbtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar mCalendar = Calendar.getInstance();
+                int mYear = mCalendar.get(Calendar.YEAR);
+                int mMonth = mCalendar.get(Calendar.MONTH);
+                int mDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(ActWriteActivity.this,callbackMethod,mYear,mMonth,mDay);
+                callbackMethod = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        monthOfYear = monthOfYear+1;
+                        STtext.setText(year+"년 "+monthOfYear+"월 "+dayOfMonth+"일 ");
+                    }
+                };
+                dialog.show();
+            }
+        });
+        EDbtn = (Button)findViewById(R.id.edbtn);
+        EDbtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar mCalendar = Calendar.getInstance();
+                int mYear = mCalendar.get(Calendar.YEAR);
+                int mMonth = mCalendar.get(Calendar.MONTH);
+                int mDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(ActWriteActivity.this,callbackMethod,mYear,mMonth,mDay);
+                callbackMethod = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        monthOfYear = monthOfYear+1;
+                        EDtext.setText(year+"년 "+monthOfYear+"월 "+dayOfMonth+"일 ");
+                    }
+                };
+                dialog.show();
+            }
+        });
+
     }
 
     @Override

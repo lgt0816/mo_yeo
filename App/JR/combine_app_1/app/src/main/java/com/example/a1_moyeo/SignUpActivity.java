@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
         Button btn_signup_ok = (Button) findViewById(R.id.btn_signup_ok);
+        EditText signup_id,signup_pw,signup_rpw,signup_name,signup_number,signup_email; //라디오, 스피너 값 받아오는 방법 고민 필요!
 
         btn_signup_ok.setOnClickListener(new View.OnClickListener() {
             @Override

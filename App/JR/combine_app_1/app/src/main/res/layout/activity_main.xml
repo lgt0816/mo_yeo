@@ -9,14 +9,13 @@
     android:padding="20dp"
     tools:context=".MainActivity" >
 
-
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:padding="10dp"
-        android:src="@drawable/logo"/>
+        android:layout_height="wrap_content"
+        android:text="모여라 여기로"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:paddingBottom="40dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +27,7 @@
             android:textSize="24dp"
             android:text="ID : "/>
         <EditText
+            android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint=" ID 입력 "

@@ -33,7 +33,7 @@
                 android:textSize="20dp"
                 android:text="ID : "/>
             <EditText
-                android:id="@+id/ID"
+                android:id="@+id/signup_id"
                 android:layout_weight="5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:textSize="20dp"
             android:text="PW : "/>
         <EditText
-            android:id="@+id/P_W"
+            android:id="@+id/signup_pw"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -76,7 +76,7 @@
             android:textSize="20dp"
             android:text="PW확인 : "/>
         <EditText
-            android:id="@+id/P_Wcheck"
+            android:id="@+id/signup_rpw"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -93,7 +93,7 @@
             android:textSize="20dp"
             android:text="이름 : "/>
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/signup_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -110,6 +110,7 @@
             android:textSize="20dp"
             android:text="성별 : "/>
         <RadioGroup
+            android:id="@+id/signup_bg"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -134,7 +135,7 @@
             android:textSize="20dp"
             android:text="핸드폰 : "/>
         <EditText
-            android:id="@+id/number"
+            android:id="@+id/signup_number"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -155,6 +156,7 @@
             android:textSize="20dp"
             android:text="이메일 : "/>
         <EditText
+            android:id="@+id/signup_email"
             android:layout_marginTop="10dp"
             android:layout_weight="2.5"
             android:layout_width="0dp"

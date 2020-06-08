@@ -37,127 +37,307 @@
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                        <ImageView
-                            android:id="@+id/image"
-                            android:layout_width="180dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="15dp"
-                            android:layout_weight="2"
-                            android:adjustViewBounds="true"
-                            android:padding="5dp"
-                            android:src="@drawable/unnamed" />
-
-                        <TextView
-                            android:id="@+id/title"
-                            android:layout_width="270dp"
-                            android:layout_height="156dp"
-                            android:lineSpacingMultiplier="1.5"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="홍길동\n컴퓨터공학과\n20101234\nhong@sungkyul.ac.kr"
-                            android:textSize="20dp"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
+                            android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/rq_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="신청중인 활동"/>
-                    </LinearLayout>
+                            <ImageView
+                                android:id="@+id/image"
+                                android:layout_width="100dp"
+                                android:layout_height="224dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_weight="1"
+                                android:adjustViewBounds="true"
+                                android:background="@drawable/line"
+                                android:padding="5dp"
+                                android:src="@drawable/unnamed" />
 
-                    <LinearLayout
-                        android:id="@+id/myrc_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="내가 모집중인 활동"/>
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="224dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/line"
+                                android:orientation="vertical"
+                                android:padding="10dp">
 
-                    <LinearLayout
-                        android:id="@+id/ing_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="진행중인 활동"/>
-                    </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:background="#cdf2e4"
+                                    android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/finish_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="완료한 활동"/>
-                    </LinearLayout>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="1dp"
+                                        android:text="내 정보"
+                                        android:textSize="20dp"
+                                        android:gravity="center_horizontal"
+                                        android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:id="@+id/pp_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="포트폴리오"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="이름 : "
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="홍길동"
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="학과 : "
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="컴퓨터공학과"
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="학번 : "
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="12345678"
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="이메일 : "
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="nhong@sungkyul.ac.kr"
+                                        android:textSize="20dp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rq_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="신청중인 활동"
+                                    android:textSize="25dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/myrc_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="내가 모집중인 활동"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ing_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="진행중인 활동"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/finish_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="완료한 활동"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/pp_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="포트폴리오"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/myrv_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="내 정보 수정"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/logout_click"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="■"
+                                    android:textSize="25dp"
+                                    android:textColor="#cdf2e4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:text="로그아웃"
+                                    android:textSize="25dp" />
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/myrv_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="내 정보 수정"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/logout_click"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:text="로그아웃"/>
-                    </LinearLayout>
-                </LinearLayout>
                 </ScrollView>
                 </LinearLayout>
     <LinearLayout
