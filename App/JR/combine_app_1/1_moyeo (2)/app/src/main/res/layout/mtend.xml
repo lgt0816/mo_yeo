@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mtend_toolbar"
+        android:background="#035AA6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="MO-YEO"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:text="함께한 멘토를 평가해주세요"
+                android:textSize="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="■ "
+                        android:textStyle="bold"
+                        android:textColor="#77B3D9"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/textView"
+                        android:text="멘토님의 피드백은 충분했나요?"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+                <RadioGroup
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="충분했습니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="보통입니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="부족했습니다"
+                        android:textSize="15dp" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="■ "
+                        android:textStyle="bold"
+                        android:textColor="#77B3D9"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="멘토님의 답장속도는 어땠나요?"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+                <RadioGroup
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="빨랐습니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="보통입니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="느립니다"
+                        android:textSize="15dp" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="■ "
+                        android:textStyle="bold"
+                        android:textColor="#77B3D9"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="멘토님의 도움이 충분했나요?"
+                        android:textStyle="bold"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+
+                <RadioGroup
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="충분했습니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="보통입니다"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="부족했습니다"
+                        android:textSize="15dp" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:text="멘토님의 총점은?"
+                    android:paddingLeft="20dp"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:numStars="5"
+                    android:rating="2.5"
+                    android:stepSize="0.5" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

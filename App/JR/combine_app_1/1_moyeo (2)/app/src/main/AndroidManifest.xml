@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a1_moyeo">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".PwActivity"/>
+        <activity android:name=".PwChangeActivity"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".IngListActivity"/>
+        <activity android:name=".IngActivityDetail"/>
+        <activity android:name=".NotiListActivity"/>
+        <activity android:name=".NotiWriteActivity"/>
+        <activity android:name=".ActListActivity"/>
+        <activity android:name=".ActWriteActivity"/>
+        <activity android:name=".ActLookActivity"/>
+        <activity android:name=".RcListActivity"/>
+        <activity android:name=".GProjectListActivity"/>
+        <activity android:name=".GGProjectCheckActivity"/>
+        <activity android:name=".RcWriteActivity"/>
+        <activity android:name=".PPCreateActivity"/>
+        <activity android:name=".PPListActivity"/>
+        <activity android:name=".PPLookActivity"/>
+        <activity android:name=".RqListActivity"/>
+        <activity android:name=".FinishListActivity"/>
+        <activity android:name=".FinishLookActivity"/>
+        <activity android:name=".FinishFeelActivity"/>
+        <activity android:name=".RcLookActivity"/>
+        <activity android:name=".GWriteActivity"/>
+        <activity android:name=".GLookActivity"/>
+        <activity android:name=".MyReviseActivity"/>
+        <activity android:name=".MyRcListActivity"/>
+        <activity android:name=".EmailCheckActivity"/>
+        <activity android:name=".GGLookActivity"/>
+        <activity android:name=".MyRcDeleteActivity"/>
+        <activity android:name=".FinishCreateActivity"/>
+        <activity android:name=".WarningListActivity"/>
+        <activity android:name=".WhyWarningActivity"/>
+        <activity android:name=".OutListActivity"/>
+        <activity android:name=".WhyOutActivity"/>
+        <activity android:name=".MtEndActivity"/>
+        <activity android:name=".MemoActivity"/>
+        <activity android:name=".MemowriteActivity"/>
+    </application>
+
+</manifest>
