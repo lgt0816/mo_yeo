@@ -1,0 +1,6 @@
+C:\Users\USER\source\repos\ServerCode\ClientCode\bin\Debug\ClientCode.exe.config
+C:\Users\USER\source\repos\ServerCode\ClientCode\bin\Debug\ClientCode.exe
+C:\Users\USER\source\repos\ServerCode\ClientCode\bin\Debug\ClientCode.pdb
+C:\Users\USER\source\repos\ServerCode\ClientCode\obj\Debug\ClientCode.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ServerCode\ClientCode\obj\Debug\ClientCode.exe
+C:\Users\USER\source\repos\ServerCode\ClientCode\obj\Debug\ClientCode.pdb
