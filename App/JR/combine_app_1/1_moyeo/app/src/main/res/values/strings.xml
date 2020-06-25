@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">1_moyeo</string>
-    <string name="app_title_kr">모여라 여기로</string>
-    <string name="inglist_title">"진행 중인 내 활동</string>
-    <string name="study">스터디</string>
-    <string name="contest">공모전</string>
-    <string name="project">프로젝트</string>
-    <string name="graduate">졸업작품</string>
-</resources>
