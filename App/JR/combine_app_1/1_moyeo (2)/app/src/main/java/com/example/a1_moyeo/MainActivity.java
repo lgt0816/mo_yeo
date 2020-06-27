@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                        // arra = rcvDataFromServer.toString();
                     }
                 }catch (Exception e) {
+                    e.printStackTrace();
                 }
 
                 if(rcvDataFromServer.toString().startsWith("FALSE")){

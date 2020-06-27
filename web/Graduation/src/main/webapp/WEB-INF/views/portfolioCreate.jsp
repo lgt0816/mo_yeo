@@ -7,8 +7,10 @@
 </head>
 <body>
 	<%@ include file="./include/navbar.jsp"%>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
 	
-	<div class="container">
+	<div class="container mt-3">
         <form action="/portfolio/createPost" method="post">
             <div class="row">
                 <label for="title" class="col-1 col-form-label text-right font-weight-bold">제목</label>

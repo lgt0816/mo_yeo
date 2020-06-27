@@ -9,6 +9,8 @@
 <body>
 
 	<%@ include file="./include/navbar.jsp" %>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
     
 
     <!--컨테이너-->

@@ -127,9 +127,10 @@ public class PortfolioServiceImpl implements PortfolioService{
 	public boolean modifyPortfolioTitle(String userId, String urlEncodedId, String portfolioTitle) {
 		try {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
-			String encodedId = URLDecoder.decode(urlEncodedId, "UTF-8");
-			String portfolioId = aes256.decrypt(encodedId);
-		
+//			String encodedId = URLDecoder.decode(urlEncodedId, "UTF-8");
+			String portfolioId = aes256.decrypt(urlEncodedId);
+			System.out.println("ppId :"+portfolioId);
+			
 			paramMap.put("portfolioId", portfolioId);
 			paramMap.put("userId", userId);
 			paramMap.put("portfolioTitle", portfolioTitle);
@@ -147,8 +148,9 @@ public class PortfolioServiceImpl implements PortfolioService{
 	public boolean modifyIncludedActivity(String userId, String urlEncodedId, 
 			String[] encodedACTIds){
 		try {
-		String encodedId = URLDecoder.decode(urlEncodedId, "UTF-8");
-		String portfolioId = aes256.decrypt(encodedId);
+//		String encodedId = URLDecoder.decode(urlEncodedId, "UTF-8");
+		String portfolioId = aes256.decrypt(urlEncodedId);
+		System.out.println("ppId is :"+portfolioId);
 		
 		//deleteAllIncludedACT 의 파라미터
 		Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -156,19 +158,19 @@ public class PortfolioServiceImpl implements PortfolioService{
 		paramMap.put("portfolioId", portfolioId);
 
 		//포함되어 있는 활동들을 제거한다.
-		if(portfolioDAO.deleteAllIncludedACT(paramMap)) {
-			//선택된 활동들을 포트폴리오에 연결한다.
-			for(int i=0; i<encodedACTIds.length;i++) {
-				Map<String, Object> _paramMap = new HashMap<String, Object>();
-				String _encodedId = URLDecoder.decode(encodedACTIds[i],"UTF-8");
-				String _activityId = aes256.decrypt(_encodedId);
-				
-				_paramMap.put("userId", userId);
-				_paramMap.put("portfolioId", portfolioId);
-				_paramMap.put("activityId", _activityId);
-				
-				if(!portfolioDAO.insertIncludedACT(_paramMap)) return false;
-			}
+		System.out.println(portfolioDAO.deleteAllIncludedACT(paramMap));
+		
+		//선택된 활동들을 포트폴리오에 연결한다.
+		for(int i=0; i<encodedACTIds.length;i++) {
+			Map<String, Object> _paramMap = new HashMap<String, Object>();
+			String _encodedId = URLDecoder.decode(encodedACTIds[i],"UTF-8");
+			String _activityId = aes256.decrypt(_encodedId);
+			
+			_paramMap.put("userId", userId);
+			_paramMap.put("portfolioId", portfolioId);
+			_paramMap.put("activityId", _activityId);
+			
+			if(!portfolioDAO.insertIncludedACT(_paramMap)) return false;
 		}
 		
 		return true;

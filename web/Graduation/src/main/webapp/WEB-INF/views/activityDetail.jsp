@@ -17,8 +17,11 @@ td {
 </head>
 <body>
 	<%@ include file="./include/navbar.jsp"%>
-
-	<div class="container">
+	
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
+	
+	<div class="container mt-3">
 		<table class="table table-bordered">
 			<colgroup>
 				<col width="100px" />

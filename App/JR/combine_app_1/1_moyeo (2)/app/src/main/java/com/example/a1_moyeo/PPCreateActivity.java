@@ -82,7 +82,7 @@ public class PPCreateActivity extends AppCompatActivity {
         }
         int num=0;
         select05 = rcvDataFromServer.toString();
-         data05 = select05.split("ㅩ");//1학년,2제목,3활동타입,4진행시작,5진행끝
+        data05 = select05.split("ㅩ");//1학년,2제목,3활동타입,4진행시작,5진행끝
 
         pptitle = new String[data05.length/5];
 

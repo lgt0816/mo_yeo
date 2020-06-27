@@ -29,7 +29,7 @@
 		activity_tb AS ACT
 		JOIN activity_join_list_tb AS ACT_JL 
 		ON ACT.ACT_ID = ACT_JL.ACT_ID
-		JOIN moyeo_db.activity_progress_completed_tb AS ACT_CT
+		JOIN activity_progress_completed_tb AS ACT_CT
 		ON ACT.ACT_ID = ACT_CT.ACT_ID
 		WHERE ACT.ACT_TYPENAME= #{activityType} 
 		AND ACT_JL.STUDENT_ID= #{userId} 

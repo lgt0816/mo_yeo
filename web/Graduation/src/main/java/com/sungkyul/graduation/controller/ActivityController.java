@@ -61,7 +61,7 @@ public class ActivityController extends com.sungkyul.graduation.controller.Contr
 		return "completedActivitys";
 	}
 
-	// 대외활동 리스트 보기
+	// 공모전 리스트 보기
 	@GetMapping("/activity/completedInternationals")
 	public String completedInternatinalList(HttpServletRequest request, Model model) {
 		String loginedUserId = getLoginedUserId(request);

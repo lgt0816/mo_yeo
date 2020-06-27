@@ -7,8 +7,10 @@
 </head>
 <body>
 	<%@ include file="./include/navbar.jsp"%>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
 
-	<div class="container">
+	<div class="container mt-3">
 		<div class="accordion" id="accordionExample">
 			<c:forEach var="portfolio" items="${portfolios }" varStatus="status">
 				<div class="card">
@@ -49,8 +51,7 @@
 							<a href="/portfolio/modify?portfolioId=${portfolio.encodedId }"
 								class="btn btn-primary">수정</a> <a
 								href="/portfolio/delete?portfolioId=${portfolio.encodedId }"
-								class="btn btn-primary">삭제</a> <a href=""
-								class="btn btn-primary">pdf로 한번에 보기</a>
+								class="btn btn-primary">삭제</a>
 						</div>
 					</div>
 				</div>

@@ -32,7 +32,7 @@
 
 
 	<!-- MySQL dataSource moyeo DB -->
-	<bean id="dataSource"
+	<!-- <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
@@ -41,14 +41,14 @@
 		</property>
 		<property name="username" value="moyeo"></property>
 		<property name="password" value="moyeo"></property>
-	</bean>
+	</bean> -->
 
 	<!-- 자신의 PC(로컬)에 MySql을 설치했을 경우 -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property> 
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/스키마이름?useSSL=false&amp;serverTimezone=UTC"> 
-		</property> <property name="username" value="MySQL 계정"></property> <property 
-		name="password" value="비밀번호"></property> </bean> -->
+		<property name="url" value="jdbc:mysql://172.16.105.50:3306/moyeo_db?useSSL=false&amp;serverTimezone=UTC"> 
+		</property> <property name="username" value="moyeo"></property> <property 
+		name="password" value="moyeo"></property> </bean>
 
 	<!-- mybatis SqlSessionFactoryBean -->
 	<!-- DB와의 연결과 SQL의 실행에 대한 모든 것을 가진 객체 -->
@@ -75,7 +75,7 @@
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
 		<property name="username" value="lgt0816@gmail.com" />
-		<property name="password" value="비밀번호" />
+		<property name="password" value="rmaehd9$)*!^" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.auth">true</prop>

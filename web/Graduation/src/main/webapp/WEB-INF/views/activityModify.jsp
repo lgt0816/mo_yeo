@@ -8,8 +8,10 @@
 </head>
 <body>
 	<%@ include file="./include/navbar.jsp"%>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
 
-	<div class="container">
+	<div class="container mt-3">
         <form name="actModifyDTO" role="form" action="/activity/modifyPost" method="post" enctype="multipart/form-data">
         	<input type="hidden" value="${activity.encodedId }" name="encodedId">
         	<input type="hidden" value="${activity.title }" name="activityTitle">

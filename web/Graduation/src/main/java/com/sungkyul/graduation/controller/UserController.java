@@ -199,8 +199,8 @@ public class UserController implements SessionNames, AjaxNames{
 			//해당 결과값이 없는경우
 			model.addAttribute(MODEL_PAGE_SUBTITLE, "아이디 찾기");
 			model.addAttribute(MODEL_FIND_USER_RESULT, "해당 결과가 없습니다.");
-			
 		}
+		
 		return "forward:/findUserResult";
 	}
 	

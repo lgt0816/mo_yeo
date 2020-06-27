@@ -40,13 +40,14 @@ public class CommAPI extends AsyncTask {
             String sendData = "";
             if (ok.contains("INSERT")) {
                 for (int i = 0; i < objects.length; i++) {
-                    sendData = sendData + objects[i] + "ㅩ";
+                    sendData += objects[i] + "ㅩ";
                 }
                 //sendData += "\r";
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(mSocket.getOutputStream(), "EUC-KR")), true);
                 //out.print(sendData);
                 out.println(sendData);
                 out.flush();
+                out.close();
                 while (mSocket.getInputStream().read() == 0) {
                 }
                 BufferedReader br = new BufferedReader(new InputStreamReader(mSocket.getInputStream(), "EUC-KR"));
@@ -61,6 +62,7 @@ public class CommAPI extends AsyncTask {
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(mSocket.getOutputStream(), "EUC-KR")), true);
                 out.println(sendData);
                 out.flush();
+                out.close();
                 while (mSocket.getInputStream().read() == 0) {}
                 BufferedReader br = new BufferedReader(new InputStreamReader(mSocket.getInputStream(), "EUC-KR"));
                 StringBuffer stb = new StringBuffer();
@@ -71,12 +73,14 @@ public class CommAPI extends AsyncTask {
 
         } catch (IOException e) {
             Log.e("Comm Error", e.getMessage());
+        } finally {
+            try {
+                mSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-//        finally {
-//            doSocketClose();
-//        }
         return result;
-
     }
 
 
@@ -91,7 +95,7 @@ public class CommAPI extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        doSocketClose();
+//        doSocketClose();
        // delegate.processFinish(o.toString());
 //        if(o!=null && delegate != null){
 //            delegate.processFinish(o.toString());

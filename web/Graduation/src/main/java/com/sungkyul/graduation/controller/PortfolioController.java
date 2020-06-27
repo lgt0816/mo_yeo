@@ -97,7 +97,19 @@ public class PortfolioController
 			HttpServletRequest request) {
 		String loginedUserId = getLoginedUserId(request);
 
-		portfolioService.modifyPortfolioTitle(loginedUserId, portfolioId, portfolioTitle);
+		logger.info("ppId : {}",portfolioId);
+		logger.info("ppTitle : {}",portfolioTitle);
+		if(activityIds!=null) {
+			for(int i=0;i<activityIds.length;i++) {
+				logger.info("actIds : {}",activityIds[i].toString());
+			}
+		}else {
+			System.out.println("activityIds is null!!!");
+		}
+		
+		
+		System.out.println(portfolioService.modifyPortfolioTitle(loginedUserId, portfolioId, portfolioTitle));
+		
 		
 		if(activityIds==null) {
 			portfolioService.modifyIncludedActivity(loginedUserId, portfolioId);

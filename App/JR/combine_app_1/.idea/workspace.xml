@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b77ace36-40c6-4f7c-b8a7-7a16ecb46757" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/src/main/java/com/sungkyul/graduation/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/src/main/java/com/sungkyul/graduation/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/src/test/java/com/sungkyul/graduation/controller/FileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/src/test/java/com/sungkyul/graduation/controller/FileControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/target/classes/com/sungkyul/graduation/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/target/classes/com/sungkyul/graduation/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/target/m2e-wtp/web-resources/META-INF/maven/com.sungkyul/graduation/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/target/m2e-wtp/web-resources/META-INF/maven/com.sungkyul/graduation/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/target/m2e-wtp/web-resources/META-INF/maven/com.sungkyul/graduation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/target/m2e-wtp/web-resources/META-INF/maven/com.sungkyul/graduation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Graduation/target/test-classes/com/sungkyul/graduation/controller/FileControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Graduation/target/test-classes/com/sungkyul/graduation/controller/FileControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/Japanese_word_test/target/m2e-wtp/web-resources/META-INF/maven/com.myproject/japanese/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../web/Japanese_word_test/target/m2e-wtp/web-resources/META-INF/maven/com.myproject/japanese/pom.properties" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\tools\git\mo_yeo\App\JR\combine_app_1\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1cIZ2x6PgWJr2ocX257BvQv9B12" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b77ace36-40c6-4f7c-b8a7-7a16ecb46757" name="Default Changelist" comment="" />
+      <created>1590217864383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590217864383</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

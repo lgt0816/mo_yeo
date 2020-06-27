@@ -7,8 +7,10 @@
 </head>
 <body>
 	<%@ include file="./include/navbar.jsp"%>
+	<!-- jumbotron(전광판) -->
+    <%@ include file="./include/jumbotron.jsp" %>
 	
-	<div class="container">
+	<div class="container mt-3">
         <form action="/portfolio/modifyPost" method="post">
         <input type="hidden" name="portfolioId" value="<c:out value="${portfolio.encodedId }" />">
             <div class="row">
